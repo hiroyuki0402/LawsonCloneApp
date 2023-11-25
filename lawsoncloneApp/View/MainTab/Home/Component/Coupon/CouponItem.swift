@@ -16,6 +16,7 @@ struct CouponItem: View {
                         HStack {
                             CouponScrollViewItem(imageName: item)
                                 .shadow(radius: 2)
+                                .padding(.trailing, 20)
 
 
                         }

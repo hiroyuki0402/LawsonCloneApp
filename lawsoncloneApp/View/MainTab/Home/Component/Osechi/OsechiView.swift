@@ -15,6 +15,7 @@ struct OsechiView: View {
 
                 Text("※店舗によって取り扱いがない商品がございます。必ず商品の詳細をご確認ください。")
                     .font(.footnote)
+                    .padding(.trailing, 20)
                     .foregroundColor(.gray)
             }
         }

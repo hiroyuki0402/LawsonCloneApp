@@ -24,6 +24,7 @@ struct ReservationItem: View {
                         .background(Rectangle().stroke(.gray, lineWidth: 0.5))
                     }
                 }
+                .padding(.trailing, 20)
             }
         }
     }

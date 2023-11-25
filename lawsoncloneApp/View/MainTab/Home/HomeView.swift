@@ -55,6 +55,14 @@ struct HomeView: View {
                         .padding(.leading)
                         .padding(.top)
 
+                    CampaingnView()
+                        .padding(.leading)
+                        .padding(.top)
+                    
+                    NewItemView()
+                        .padding(.leading)
+                        .padding(.top)
+
                     Spacer()
                 }
                 .toolbar {
