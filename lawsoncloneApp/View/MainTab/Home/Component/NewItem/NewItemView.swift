@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct NewItemView: View {
+    // MARK: - プロパティー
     private var newItems: [String] {
         return TestData.shared.newItems
     }
 
+    // MARK: - ボディー
 
     var body: some View {
         VStack {
+            /// ヘッダー
             ContentsHeader(title: "新商品", isHide: true)
+
+            /// コンテンツ
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(
                     rows: gridLayout().gridLayouts,
@@ -30,9 +35,9 @@ struct NewItemView: View {
                         }})//: Section
                 .frame(height: 220)
                 .frame(maxWidth: .infinity)
- 
             }
 
+            /// 注意書き
             Text("※地域によって取り扱いがない商品、仕様などが異なる商品がございます。必ず商品詳細をご確認ください。")
                 .padding(.top, 4)
                 .padding(.trailing, 20)
@@ -41,6 +46,10 @@ struct NewItemView: View {
         }
     }
 
+    // MARK: - メソッド
+
+    /// グリッドのセットアップ
+    /// - Returns: 設定を加えたグリッド
     func gridLayout() -> (coulumnSpace: CGFloat, rowSpacing: CGFloat, gridLayouts: [GridItem])  {
         let columnSpacing: CGFloat = 11
         let rowSpacing: CGFloat = 11
@@ -49,8 +58,6 @@ struct NewItemView: View {
         }
         return (columnSpacing, rowSpacing, gridLayout)
     }
-
-
 }
 
 #Preview {

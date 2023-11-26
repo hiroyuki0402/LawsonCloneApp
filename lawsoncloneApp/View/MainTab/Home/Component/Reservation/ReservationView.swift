@@ -7,15 +7,22 @@
 
 import SwiftUI
 
-struct Reservation: View {
+struct ReservationView: View {
+    // MARK: - プロパティー
+
+    // MARK: - ボディー
+
     var body: some View {
         VStack {
+            /// ヘッダー
             ContentsHeader(title: "ローソン予約アプリ")
+
+            /// コンテンツ
             ReservationItem()
         }
-    }
+    }//: ボディー
 }
 
 #Preview {
-    Reservation()
+    ReservationView()
 }
