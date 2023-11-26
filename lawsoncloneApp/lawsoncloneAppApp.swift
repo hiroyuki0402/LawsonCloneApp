@@ -12,7 +12,7 @@ struct lawsoncloneAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            MainTabView()
         }
     }
 }
