@@ -5,3 +5,8 @@
   Created by SHIRAISHI HIROYUKI on 2023/11/24.
   
 */
+
+// MARK: - 共通
+
+// MARK: - ホーム
+NaigationTitle = "LAWSON";

@@ -9,6 +9,13 @@ import Foundation
 import SwiftUI
 
 struct HomeView: View {
+    // MARK: - プロパティー
+
+    /// 背景色
+    private let backGroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+
+    // MARK: - 初期化
+
     init(){
         let appearance = UINavigationBarAppearance()
         /// ナビゲーションバーの背景色
@@ -26,38 +33,59 @@ struct HomeView: View {
         UIScrollView.appearance().bounces = false
     }
 
+    // MARK: - ボディー
+
     var body: some View {
-        let backGroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
 
         NavigationStack {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
-
-                    BannerView()
+                    /// Topバナー
+                    HomeTopBannerView()
                         .padding(.bottom, 20)
 
-
-                    BannerItem()
+                    /// キャンペーンバナー
+                    BannerView()
                         .padding(.leading)
 
+                    /// ログインに関して
                     LowsonAppdescription()
                         .padding()
 
-                    Reservation()
+                    ///  予約
+                    ReservationView()
                         .padding(.leading)
                         .padding(.top)
 
+                    /// おせち
                     OsechiView()
                         .padding(.leading)
                         .padding(.top)
 
+                    /// クーポン
                     CoiponView()
                         .padding(.leading)
+                        .padding(.top)
+
+                    /// キャンペーン
+                    HomeCampaingnView()
+                        .padding(.leading)
+                        .padding(.top)
+
+                    /// 新商品
+                    NewItemView()
+                        .padding(.leading)
+                        .padding(.top)
+
+                    /// その他
+                    OthersView()
                         .padding(.top)
 
                     Spacer()
                 }
                 .toolbar {
+
+                    /// お知らせ
                     ToolbarItem(placement: .topBarLeading) {
                         Image(systemName: "bell")
                             .resizable()
@@ -71,6 +99,7 @@ struct HomeView: View {
                             .foregroundColor(.blue)
                     }
 
+                    /// 設定
                     ToolbarItem(placement: .topBarTrailing) {
                         Image(systemName: "gearshape")
                             .resizable()
@@ -80,15 +109,17 @@ struct HomeView: View {
                             .foregroundColor(.white)
                     }
                 }
-                .navigationTitle("lawson".uppercased())
+                .navigationTitle(NSLocalizedString("NaigationTitle", comment: ""))
                 .navigationBarTitleDisplayMode(.inline)
-            }
+            }//: ScrollView
             .background(Color(backGroundColor))
 
-        }
+        }//: NavigationStack
 
-    }
+    }//: ボディー
 }
+
+// MARK: - プレビュー
 
 #Preview {
     HomeView()

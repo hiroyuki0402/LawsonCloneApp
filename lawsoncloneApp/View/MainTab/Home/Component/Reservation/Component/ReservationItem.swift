@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ReservationItem: View {
+    // MARK: - プロパティー
+
+    // MARK: - ボディー
+
     var body: some View {
         VStack {
             ScrollView(.horizontal) {
@@ -22,11 +26,17 @@ struct ReservationItem: View {
                         }
                         .padding(.vertical, 4)
                         .background(Rectangle().stroke(.gray, lineWidth: 0.5))
-                    }
-                }
-            }
-        }
-    }
+
+                    }//: ループ
+
+                }//: HStack
+                .padding(.trailing, 20)
+
+            }//: ScrollView
+
+        }//: VStack
+
+    }//: ボディー
 }
 
 #Preview {

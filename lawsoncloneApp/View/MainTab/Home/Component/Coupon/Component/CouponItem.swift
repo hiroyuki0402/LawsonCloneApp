@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct CouponItem: View {
+    // MARK: - プロパティー
+
+    // MARK: - ボディー
+
     var body: some View {
         VStack {
             ScrollView(.horizontal) {
@@ -16,15 +20,18 @@ struct CouponItem: View {
                         HStack {
                             CouponScrollViewItem(imageName: item)
                                 .shadow(radius: 2)
-
-
+                                .padding(.trailing, 20)
                         }
                         .padding(.vertical, 4)
-                    }
-                }
-            }
-        }
-    }
+                    }//: ループ
+
+                }//: HStack
+
+            }//: ScrollView
+
+        }//: VStack
+
+    }//: ボディー
 }
 
 #Preview {
