@@ -38,28 +38,21 @@ struct CouponView: View {
                     
 
                     HeaderView()
+                        .padding(.leading, 10)
+
+                    ForEach(TestData.shared.couponItems, id: \.self) { item in
+                        CouponItemView(image: item)
+                            .shadow(radius: 3, x: 1, y:1)
+                            .padding(.horizontal)
+                            .padding(.top, 10)
+                    }
                 }
             }
             .background(Color(.systemGray6))
             .toolbar {
-
-                /// お知らせ
-                ToolbarItem(placement: .topBarLeading) {
-                    Image(systemName: "bell")
-                        .resizable()
-                        .font(.callout)
-                        .padding(4)
-                        .frame(width: 24, height: 24)
-                        .background(.white)
-                        .clipShape(
-                            Circle()
-                        )
-                        .foregroundColor(.blue)
-                }
-
                 /// 設定
                 ToolbarItem(placement: .topBarTrailing) {
-                    Image(systemName: "gearshape")
+                    Image(systemName: "info.circle")
                         .resizable()
                         .font(.callout)
                         .padding(2)
@@ -67,7 +60,7 @@ struct CouponView: View {
                         .foregroundColor(.white)
                 }
             }
-            .navigationTitle(NSLocalizedString("NaigationTitle", comment: ""))
+            .navigationTitle(NSLocalizedString("CouponNaigationTitle", comment: ""))
             .navigationBarTitleDisplayMode(.inline)
         }
     }//: ボディー

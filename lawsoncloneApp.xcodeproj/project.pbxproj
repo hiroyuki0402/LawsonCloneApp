@@ -49,6 +49,9 @@
 		3B7E52982B1754DF007E2829 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E52972B1754DF007E2829 /* HeaderView.swift */; };
 		3B7E529A2B1754FD007E2829 /* HeaderViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E52992B1754FD007E2829 /* HeaderViewItem.swift */; };
 		3B7E529D2B1761E9007E2829 /* CommonNavigarionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E529C2B1761E9007E2829 /* CommonNavigarionBar.swift */; };
+		3B7E529F2B189D7A007E2829 /* StatusTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E529E2B189D7A007E2829 /* StatusTabView.swift */; };
+		3B7E52A32B18A65E007E2829 /* SizeSetterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E52A22B18A65E007E2829 /* SizeSetterModifier.swift */; };
+		3B7E52A52B18AA68007E2829 /* CouponItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E52A42B18AA68007E2829 /* CouponItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +98,9 @@
 		3B7E52972B1754DF007E2829 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		3B7E52992B1754FD007E2829 /* HeaderViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewItem.swift; sourceTree = "<group>"; };
 		3B7E529C2B1761E9007E2829 /* CommonNavigarionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigarionBar.swift; sourceTree = "<group>"; };
+		3B7E529E2B189D7A007E2829 /* StatusTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTabView.swift; sourceTree = "<group>"; };
+		3B7E52A22B18A65E007E2829 /* SizeSetterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSetterModifier.swift; sourceTree = "<group>"; };
+		3B7E52A42B18AA68007E2829 /* CouponItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +280,7 @@
 			children = (
 				3B7E529B2B1761D5007E2829 /* NavigationView */,
 				3B67A3002B10C5F200F80555 /* MainTab */,
+				3B7E52A22B18A65E007E2829 /* SizeSetterModifier.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -423,8 +430,10 @@
 			isa = PBXGroup;
 			children = (
 				3B7E52952B1751A7007E2829 /* PermissionBannerView.swift */,
+				3B7E52A42B18AA68007E2829 /* CouponItemView.swift */,
 				3B7E52972B1754DF007E2829 /* HeaderView.swift */,
 				3B7E52992B1754FD007E2829 /* HeaderViewItem.swift */,
+				3B7E529E2B189D7A007E2829 /* StatusTabView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -514,6 +523,7 @@
 				3B7E52962B1751A7007E2829 /* PermissionBannerView.swift in Sources */,
 				3B5B43632B119AE9004F9570 /* ReservationItem.swift in Sources */,
 				3B5B437D2B123AD2004F9570 /* CampaingnViewItem.swift in Sources */,
+				3B7E52A32B18A65E007E2829 /* SizeSetterModifier.swift in Sources */,
 				3B5B43552B11758E004F9570 /* HomeTopBannerView.swift in Sources */,
 				3B5B43772B11A75B004F9570 /* CouponScrollViewItem.swift in Sources */,
 				3B7E52632B132214007E2829 /* MainTabView.swift in Sources */,
@@ -522,6 +532,7 @@
 				3B5B43612B119AD1004F9570 /* ReservationView.swift in Sources */,
 				3B5B43692B11A2B4004F9570 /* ContentsHeader.swift in Sources */,
 				3B5B43792B11AC8C004F9570 /* Line.swift in Sources */,
+				3B7E52A52B18AA68007E2829 /* CouponItemView.swift in Sources */,
 				3B67A3122B10C69700F80555 /* CanpaignView.swift in Sources */,
 				3B67A31F2B10CA1100F80555 /* Loggar.swift in Sources */,
 				3B5B435B2B118D55004F9570 /* Extension-UIimage.swift in Sources */,
@@ -538,6 +549,7 @@
 				3B67A3102B10C68000F80555 /* MidleView.swift in Sources */,
 				3B67A2F02B10BAB000F80555 /* lawsoncloneApp.xcdatamodeld in Sources */,
 				3B5B43822B123E93004F9570 /* NewItemViewItem.swift in Sources */,
+				3B7E529F2B189D7A007E2829 /* StatusTabView.swift in Sources */,
 				3B67A31C2B10C9CE00F80555 /* View-Extension.swift in Sources */,
 				3B5B43592B117FF9004F9570 /* LowsonAppdescription.swift in Sources */,
 				3B7E52612B131DF8007E2829 /* OthersView.swift in Sources */,
