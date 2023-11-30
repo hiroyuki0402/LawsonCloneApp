@@ -13,7 +13,6 @@ struct HeaderView: View {
     // MARK: - ボディー
     var body: some View {
         VStack {
-
             HeaderViewItem()
         }
         .background(Color(.systemGray6))

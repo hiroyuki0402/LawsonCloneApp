@@ -28,13 +28,18 @@ struct HeaderViewItem: View {
     // MARK: - ボディー
 
     var body: some View {
-        HStack {
+        VStack {
+            StatusTabView()
+            
+            HStack {
 
-            shoreMoreButton
+                shoreMoreButton
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                genreButton
+                ScrollView(.horizontal, showsIndicators: false) {
+                    genreButton
+                }
             }
+            .padding(.leading, 10)
         }
     }//: ボディー
 }

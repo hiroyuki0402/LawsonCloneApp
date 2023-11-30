@@ -10,3 +10,6 @@
 
 // MARK: - ホーム
 NaigationTitle = "LAWSON";
+
+
+CouponNaigationTitle = "クーポン";
