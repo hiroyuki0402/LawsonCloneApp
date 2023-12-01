@@ -10,8 +10,7 @@ import SwiftUI
 
 struct CouponView: View {
     // MARK: - プロパティー
-
-
+    @State private var bannerPosition: CGFloat = .infinity
     // MARK: - 初期化
 
     init(){
@@ -34,9 +33,16 @@ struct CouponView: View {
         NavigationStack {
             ScrollView(.vertical) {
                 VStack {
-                    PermissionBannerView()
-                    
+                    GeometryReader { geometry in
+                        PermissionBannerView()
+                            .frame(height: 85) // 高さは適宜調整
+                            .background(GeometryReader {
+                                Color.clear.preference(key: ViewOffsetKey.self, value: -$0.frame(in: .global).minY)
+                            })
+                    }
+                    .frame(height: 85) // GeometryReaderの高さ
 
+                    // HeaderViewは常に表示
                     HeaderView()
                         .padding(.leading, 10)
 
@@ -48,7 +54,28 @@ struct CouponView: View {
                     }
                 }
             }
+            .background(
+                GeometryReader { _ in
+                    Color.clear
+                }
+            )
+            .onPreferenceChange(ViewOffsetKey.self) { value in
+                bannerPosition = value
+            }
             .background(Color(.systemGray6))
+            .overlay(
+                VStack {
+                    if bannerPosition < 0 {
+                        HeaderView()
+                            .padding(.leading, 10)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Color.white)
+                            .transition(.move(edge: .top))
+                    }
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            )
             .toolbar {
                 /// 設定
                 ToolbarItem(placement: .topBarTrailing) {
@@ -70,3 +97,9 @@ struct CouponView: View {
     CouponView()
 }
 
+struct ViewOffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}

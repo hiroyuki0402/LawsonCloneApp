@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OthersView: View {
     // MARK: - プロパティー
+    private let backGroundColor = #colorLiteral(red: 0.8825963363, green: 0.9416703575, blue: 1, alpha: 0.703125)
 
     private var othersItem: [OthersItem] {
         return TestData.shared.othersItems
@@ -26,7 +27,7 @@ struct OthersView: View {
         }//: VStack
         .padding()
         .padding(.bottom, 100)
-        .background(Color(.systemGray6))
+        .background(Color(backGroundColor))
     }//: ボディー
 
     // MARK: - メソッド
