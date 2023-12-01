@@ -10,7 +10,8 @@ import SwiftUI
 
 struct CouponView: View {
     // MARK: - プロパティー
-    @State private var bannerPosition: CGFloat = .infinity
+
+
     // MARK: - 初期化
 
     init(){
@@ -25,57 +26,45 @@ struct CouponView: View {
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+
+        UIScrollView.appearance().showsVerticalScrollIndicator = false
     }
 
     // MARK: - ボディー
 
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
-                VStack {
-                    GeometryReader { geometry in
-                        PermissionBannerView()
-                            .frame(height: 85) // 高さは適宜調整
-                            .background(GeometryReader {
-                                Color.clear.preference(key: ViewOffsetKey.self, value: -$0.frame(in: .global).minY)
-                            })
-                    }
-                    .frame(height: 85) // GeometryReaderの高さ
+            List {
 
-                    // HeaderViewは常に表示
+                PermissionBannerView()
+                    .listRowSeparator(.hidden)
+
+                Section(header: ZStack(alignment: .leading) {
+                    Color.clear.frame(maxWidth: .infinity)
                     HeaderView()
-                        .padding(.leading, 10)
+                    
+                }
+                    .listRowInsets(EdgeInsets())
+                ) {
 
+                    // その他のリストアイテム
                     ForEach(TestData.shared.couponItems, id: \.self) { item in
                         CouponItemView(image: item)
-                            .shadow(radius: 3, x: 1, y:1)
-                            .padding(.horizontal)
-                            .padding(.top, 10)
+
+                        /// アイテム間のスペース
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 10)
+                        /// デフォルトのインセットを取り除く
+                            .listRowInsets(EdgeInsets())
+                        /// リスト行の背景を透明に設定
+                            .listRowBackground(Color.clear)
                     }
                 }
+                .listRowSeparator(.hidden)
             }
-            .background(
-                GeometryReader { _ in
-                    Color.clear
-                }
-            )
-            .onPreferenceChange(ViewOffsetKey.self) { value in
-                bannerPosition = value
-            }
+            .scrollIndicators(.hidden)
+            .listStyle(.plain)
             .background(Color(.systemGray6))
-            .overlay(
-                VStack {
-                    if bannerPosition < 0 {
-                        HeaderView()
-                            .padding(.leading, 10)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(Color.white)
-                            .transition(.move(edge: .top))
-                    }
-                    Spacer()
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            )
             .toolbar {
                 /// 設定
                 ToolbarItem(placement: .topBarTrailing) {
@@ -97,9 +86,3 @@ struct CouponView: View {
     CouponView()
 }
 
-struct ViewOffsetKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
-}

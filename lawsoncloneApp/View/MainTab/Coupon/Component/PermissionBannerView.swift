@@ -30,12 +30,12 @@ struct PermissionBannerView: View {
             }
             .background(.white)
             .frame(maxWidth: .infinity)
-            .padding(.bottom)
     }//: ボディー
 }
 
 #Preview {
     PermissionBannerView()
+
         .background(Color.black)
 
 }
