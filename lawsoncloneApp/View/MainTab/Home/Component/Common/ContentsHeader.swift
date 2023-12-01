@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentsHeader: View {
     var title: String
     var isHide: Bool = false
+    var fontSize: CGFloat = 17
     var body: some View {
         HStack(alignment: .top) {
             HStack(alignment: .top) {
@@ -18,7 +19,7 @@ struct ContentsHeader: View {
                 }
 
                 Text(title)
-                    .font(.title3)
+                    .font(.system(size: fontSize))
                     .foregroundColor(.black)
                     .fontWeight(.semibold)
             }
@@ -30,7 +31,6 @@ struct ContentsHeader: View {
             } label: {
                 Text("すべて見る")
                     .font(.system(size: 17))
-                    .font(.title3)
                     .fontWeight(.semibold)
                     .foregroundColor(.blue)
                     .padding(.trailing, 15)
