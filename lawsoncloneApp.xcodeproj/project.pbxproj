@@ -28,6 +28,8 @@
 		3B5B43822B123E93004F9570 /* NewItemViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B43812B123E93004F9570 /* NewItemViewItem.swift */; };
 		3B5B43862B1316A6004F9570 /* OthersItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B43852B1316A6004F9570 /* OthersItems.swift */; };
 		3B5E75752B1B76AB0093FBF7 /* CampaignListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E75742B1B76AB0093FBF7 /* CampaignListRowItem.swift */; };
+		3B5E75782B1B83E40093FBF7 /* TopicksBannerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E75772B1B83E40093FBF7 /* TopicksBannerItemView.swift */; };
+		3B5E757A2B1B88650093FBF7 /* TopicsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E75792B1B88650093FBF7 /* TopicsItemView.swift */; };
 		3B67A2E42B10BAAE00F80555 /* lawsoncloneAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67A2E32B10BAAE00F80555 /* lawsoncloneAppApp.swift */; };
 		3B67A2E82B10BAB000F80555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B67A2E72B10BAB000F80555 /* Assets.xcassets */; };
 		3B67A2EB2B10BAB000F80555 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B67A2EA2B10BAB000F80555 /* Preview Assets.xcassets */; };
@@ -78,6 +80,8 @@
 		3B5B43812B123E93004F9570 /* NewItemViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewItem.swift; sourceTree = "<group>"; };
 		3B5B43852B1316A6004F9570 /* OthersItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersItems.swift; sourceTree = "<group>"; };
 		3B5E75742B1B76AB0093FBF7 /* CampaignListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListRowItem.swift; sourceTree = "<group>"; };
+		3B5E75772B1B83E40093FBF7 /* TopicksBannerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicksBannerItemView.swift; sourceTree = "<group>"; };
+		3B5E75792B1B88650093FBF7 /* TopicsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsItemView.swift; sourceTree = "<group>"; };
 		3B67A2E02B10BAAE00F80555 /* lawsoncloneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lawsoncloneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B67A2E32B10BAAE00F80555 /* lawsoncloneAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lawsoncloneAppApp.swift; sourceTree = "<group>"; };
 		3B67A2E72B10BAB000F80555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -239,6 +243,15 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		3B5E75762B1B83A00093FBF7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				3B5E75772B1B83E40093FBF7 /* TopicksBannerItemView.swift */,
+				3B5E75792B1B88650093FBF7 /* TopicsItemView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		3B67A2D72B10BAAE00F80555 = {
 			isa = PBXGroup;
 			children = (
@@ -331,17 +344,18 @@
 				3B67A3042B10C60200F80555 /* Coupon */,
 				3B67A3032B10C60000F80555 /* Midle */,
 				3B67A3022B10C5FE00F80555 /* Campaign */,
-				3B67A3012B10C5FB00F80555 /* topics */,
+				3B67A3012B10C5FB00F80555 /* Topics */,
 			);
 			path = MainTab;
 			sourceTree = "<group>";
 		};
-		3B67A3012B10C5FB00F80555 /* topics */ = {
+		3B67A3012B10C5FB00F80555 /* Topics */ = {
 			isa = PBXGroup;
 			children = (
 				3B67A3132B10C6AE00F80555 /* TopicsView.swift */,
+				3B5E75762B1B83A00093FBF7 /* Component */,
 			);
-			path = topics;
+			path = Topics;
 			sourceTree = "<group>";
 		};
 		3B67A3022B10C5FE00F80555 /* Campaign */ = {
@@ -569,8 +583,10 @@
 				3B5B435B2B118D55004F9570 /* Extension-UIimage.swift in Sources */,
 				3B5B43572B117C18004F9570 /* BannerView.swift in Sources */,
 				3B67A3182B10C79600F80555 /* HomeViewModel.swift in Sources */,
+				3B5E75782B1B83E40093FBF7 /* TopicksBannerItemView.swift in Sources */,
 				3B5B43652B11A0FB004F9570 /* OsechiView.swift in Sources */,
 				3B67A3212B10CA5800F80555 /* TestData.swift in Sources */,
+				3B5E757A2B1B88650093FBF7 /* TopicsItemView.swift in Sources */,
 				3B5B43862B1316A6004F9570 /* OthersItems.swift in Sources */,
 				3B7E52982B1754DF007E2829 /* HeaderView.swift in Sources */,
 				3B5B43532B1168E2004F9570 /* NavigationBackGround.swift in Sources */,
