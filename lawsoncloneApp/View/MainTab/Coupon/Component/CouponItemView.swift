@@ -23,7 +23,7 @@ struct CouponItemView: View {
                     .fontWeight(.semibold)
                     .font(.caption)
                     .background(Color(uiColor: .systemGray6))
-                .clipShape(.capsule)
+                    .clipShape(.capsule)
                 Spacer()
             }
 
@@ -33,8 +33,8 @@ struct CouponItemView: View {
                     HStack {
                         Image(image)
                             .resizable()
-                        .frame(width: 200, height: 150)
-                        .padding(.trailing, 5)
+                            .frame(width: 200, height: 150)
+                            .padding(.trailing, 5)
                         HStack(alignment: .top, spacing: 0) {
                             VStack(spacing: 0) {
                                 Text("【100円引】昼食時間帯におにぎりの購入を促すための割引です。")
@@ -90,15 +90,17 @@ struct CouponItemView: View {
                         Text("詳細")
                             .foregroundStyle(.black)
                     }
+                }
+                Spacer()
+                Button {
 
-                    Spacer()
 
+                } label: {
                     HStack(spacing: 0) {
                         Image(systemName: "paperclip")
                         Text("保存")
                             .foregroundStyle(.black)
                     }
-
                 }
             }
             .padding(.horizontal, 30)
@@ -112,7 +114,10 @@ struct CouponItemView: View {
 }
 
 #Preview {
-    CouponItemView(image: TestData.shared.couponItems[0])
-        .background(Color.black)
-        .padding()
+    List {
+        CouponItemView(image: TestData.shared.couponItems[0])
+            .background(Color.black)
+            .listRowInsets(EdgeInsets())
+            .listRowBackground(Color.clear)
+    }
 }

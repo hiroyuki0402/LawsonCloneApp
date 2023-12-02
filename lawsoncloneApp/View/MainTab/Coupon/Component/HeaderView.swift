@@ -14,6 +14,8 @@ struct HeaderView: View {
     var body: some View {
         VStack {
             HeaderViewItem()
+                .frame(maxWidth: .infinity)
+                .padding(.bottom, 10)
         }
         .background(Color(.systemGray6))
         

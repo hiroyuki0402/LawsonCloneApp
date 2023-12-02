@@ -43,6 +43,7 @@ struct StatusTabView: View {
             ForEach(TabItem.allCases) { item in
                 VStack {
                     Text(item.getTitle())
+                        .foregroundStyle(.black)
                         .padding(.horizontal, 5)
                         .font(.subheadline)
                         .fontWeight(.bold)
@@ -63,6 +64,8 @@ struct StatusTabView: View {
                             .frame(width: self.tabWidths[item, default: 0], height: 2)
                     }
                 }
+                .padding(.leading, 10)
+                .padding(.top, 10)
                 .onTapGesture {
                     withAnimation {
                         selectedTab = item

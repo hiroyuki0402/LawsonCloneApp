@@ -21,8 +21,8 @@ struct HeaderViewItem: View {
         "LS100"
     ]
 
-    var showmoreButtonBackGroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-    var showmoreButtonBorderColor = #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1)
+    var showmoreButtonBackGroundColor = #colorLiteral(red: 0.7870665356, green: 0.8987134874, blue: 0.9764705896, alpha: 1)
+    var showmoreButtonBorderColor = #colorLiteral(red: 0.3331833587, green: 0.5659576486, blue: 0.9764705896, alpha: 1)
 
 
     // MARK: - ボディー
@@ -30,14 +30,17 @@ struct HeaderViewItem: View {
     var body: some View {
         VStack {
             StatusTabView()
-            
+                .padding(.bottom, 10)
+
             HStack {
 
                 shoreMoreButton
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     genreButton
+                        .padding(.trailing, 10)
                 }
+
             }
             .padding(.leading, 10)
         }
@@ -73,6 +76,8 @@ private extension HeaderViewItem {
 
                 } label: {
                     Text(item)
+                        .foregroundStyle(Color(uiColor: .darkGray))
+                        .fontWeight(.light)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 2)
                         .background(         
