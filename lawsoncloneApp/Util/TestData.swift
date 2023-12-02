@@ -25,6 +25,11 @@ class TestData{
         .init(imageName: "poweroutlet.type.f.fill", title: "チャットで質問"),
         .init(imageName: "character.bubble.ar", title: "お客様の声から"),
     ]
+    let otokuItems = ["otoku", "otoku2", "otoku3", "otoku4"]
+    let serviceItems = ["service", "service3", "service4", "service5", "service6", "service7", "service8", "service9"]
+    let partTimeItems = ["partTime", "partTime2", "partTime3"]
+    let pickupsItems = ["service9", "reservation5", "campaign3", "otoku4"]
+    let noticeItems = ["notice", "notice2", "notice3"]
 }
 
 struct OthersItem: Identifiable {

@@ -11,5 +11,11 @@
 // MARK: - ホーム
 NaigationTitle = "LAWSON";
 
-
+// MARK: - クーポン
 CouponNaigationTitle = "クーポン";
+
+// MARK: - キャンペーン
+CampaignNaigationTitle = "キャンペーン";
+
+// MARK: - トピックス
+TopicsNaigationTitle = "トピックス";
