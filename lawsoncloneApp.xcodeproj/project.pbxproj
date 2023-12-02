@@ -27,6 +27,7 @@
 		3B5B43802B123E88004F9570 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B437F2B123E88004F9570 /* NewItemView.swift */; };
 		3B5B43822B123E93004F9570 /* NewItemViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B43812B123E93004F9570 /* NewItemViewItem.swift */; };
 		3B5B43862B1316A6004F9570 /* OthersItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5B43852B1316A6004F9570 /* OthersItems.swift */; };
+		3B5E75752B1B76AB0093FBF7 /* CampaignListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E75742B1B76AB0093FBF7 /* CampaignListRowItem.swift */; };
 		3B67A2E42B10BAAE00F80555 /* lawsoncloneAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67A2E32B10BAAE00F80555 /* lawsoncloneAppApp.swift */; };
 		3B67A2E82B10BAB000F80555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B67A2E72B10BAB000F80555 /* Assets.xcassets */; };
 		3B67A2EB2B10BAB000F80555 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B67A2EA2B10BAB000F80555 /* Preview Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		3B5B437F2B123E88004F9570 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		3B5B43812B123E93004F9570 /* NewItemViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewItem.swift; sourceTree = "<group>"; };
 		3B5B43852B1316A6004F9570 /* OthersItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersItems.swift; sourceTree = "<group>"; };
+		3B5E75742B1B76AB0093FBF7 /* CampaignListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListRowItem.swift; sourceTree = "<group>"; };
 		3B67A2E02B10BAAE00F80555 /* lawsoncloneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lawsoncloneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B67A2E32B10BAAE00F80555 /* lawsoncloneAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lawsoncloneAppApp.swift; sourceTree = "<group>"; };
 		3B67A2E72B10BAB000F80555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,6 +223,22 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		3B5E75722B1B73420093FBF7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3B7E52952B1751A7007E2829 /* PermissionBannerView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3B5E75732B1B76870093FBF7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				3B5E75742B1B76AB0093FBF7 /* CampaignListRowItem.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		3B67A2D72B10BAAE00F80555 = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +298,7 @@
 		3B67A2FD2B10BBBC00F80555 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B5E75722B1B73420093FBF7 /* Common */,
 				3B7954712B1A186A00DC513B /* Modifire */,
 				3B7E529B2B1761D5007E2829 /* NavigationView */,
 				3B67A3002B10C5F200F80555 /* MainTab */,
@@ -329,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				3B67A3112B10C69700F80555 /* CanpaignView.swift */,
+				3B5E75732B1B76870093FBF7 /* Component */,
 			);
 			path = Campaign;
 			sourceTree = "<group>";
@@ -440,7 +460,6 @@
 		3B7E52942B17515F007E2829 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				3B7E52952B1751A7007E2829 /* PermissionBannerView.swift */,
 				3B7E52A42B18AA68007E2829 /* CouponItemView.swift */,
 				3B7E52972B1754DF007E2829 /* HeaderView.swift */,
 				3B7E52992B1754FD007E2829 /* HeaderViewItem.swift */,
@@ -563,6 +582,7 @@
 				3B5B43822B123E93004F9570 /* NewItemViewItem.swift in Sources */,
 				3B7E529F2B189D7A007E2829 /* StatusTabView.swift in Sources */,
 				3B67A31C2B10C9CE00F80555 /* View-Extension.swift in Sources */,
+				3B5E75752B1B76AB0093FBF7 /* CampaignListRowItem.swift in Sources */,
 				3B5B43592B117FF9004F9570 /* LowsonAppdescription.swift in Sources */,
 				3B7E52612B131DF8007E2829 /* OthersView.swift in Sources */,
 				3B67A3142B10C6AE00F80555 /* TopicsView.swift in Sources */,
