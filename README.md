@@ -1,3 +1,3 @@
 # LawsonCloneApp
 
-##  LAWSONアプリを真似作ってみる
+##  LAWSONアプリを真似て作ってみる
