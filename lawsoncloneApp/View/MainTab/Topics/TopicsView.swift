@@ -45,7 +45,7 @@ struct TopicsView: View {
             ScrollView {
                 VStack {
                     /// バナー
-                    bannerArea
+                    headerArea
 
                     /// ピックアップ
                     pickupArea
@@ -85,10 +85,24 @@ struct TopicsView: View {
 
 private extension TopicsView {
     /// バナー
-    private var bannerArea: some View {
+    private var headerArea: some View {
         VStack {
             TopicksBannerItemView()
-                .padding(.vertical)
+                .padding(.top, 30)
+
+            /// タブ
+            genreTabArea
+                .padding(.top)
+        }
+        .frame(height: 140)
+        .padding(.bottom)
+        .background(Color.white)
+    }
+
+    /// タブ
+    private var genreTabArea: some View {
+        VStack(spacing: 0) {
+            TopicsTabItemView()
         }
         .background(Color.white)
     }
