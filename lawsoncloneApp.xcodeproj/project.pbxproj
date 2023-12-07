@@ -57,6 +57,9 @@
 		3B7E52A32B18A65E007E2829 /* SizeSetterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E52A22B18A65E007E2829 /* SizeSetterModifier.swift */; };
 		3B7E52A52B18AA68007E2829 /* CouponItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E52A42B18AA68007E2829 /* CouponItemView.swift */; };
 		3B9495E32B1C31CA0053A8E2 /* TopicsTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9495E22B1C31CA0053A8E2 /* TopicsTabItemView.swift */; };
+		3B9496372B21E5580053A8E2 /* CouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9496362B21E5580053A8E2 /* CouponViewModel.swift */; };
+		3B9496392B21E6390053A8E2 /* CouponData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9496382B21E6390053A8E2 /* CouponData.swift */; };
+		3B94963B2B21EC680053A8E2 /* Date -Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94963A2B21EC680053A8E2 /* Date -Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +114,9 @@
 		3B7E52A22B18A65E007E2829 /* SizeSetterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeSetterModifier.swift; sourceTree = "<group>"; };
 		3B7E52A42B18AA68007E2829 /* CouponItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponItemView.swift; sourceTree = "<group>"; };
 		3B9495E22B1C31CA0053A8E2 /* TopicsTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsTabItemView.swift; sourceTree = "<group>"; };
+		3B9496362B21E5580053A8E2 /* CouponViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewModel.swift; sourceTree = "<group>"; };
+		3B9496382B21E6390053A8E2 /* CouponData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponData.swift; sourceTree = "<group>"; };
+		3B94963A2B21EC680053A8E2 /* Date -Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date -Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +305,7 @@
 		3B67A2FB2B10BBAD00F80555 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B9496382B21E6390053A8E2 /* CouponData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				3B67A3172B10C79600F80555 /* HomeViewModel.swift */,
+				3B9496362B21E5580053A8E2 /* CouponViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -335,6 +343,7 @@
 			children = (
 				3B67A31B2B10C9CE00F80555 /* View-Extension.swift */,
 				3B5B435A2B118D55004F9570 /* Extension-UIimage.swift */,
+				3B94963A2B21EC680053A8E2 /* Date -Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -570,13 +579,16 @@
 				3B7E52962B1751A7007E2829 /* PermissionBannerView.swift in Sources */,
 				3B5B43632B119AE9004F9570 /* ReservationItem.swift in Sources */,
 				3B5B437D2B123AD2004F9570 /* CampaingnViewItem.swift in Sources */,
+				3B9496372B21E5580053A8E2 /* CouponViewModel.swift in Sources */,
 				3B7E52A32B18A65E007E2829 /* SizeSetterModifier.swift in Sources */,
 				3B5B43552B11758E004F9570 /* HomeTopBannerView.swift in Sources */,
 				3B5B43772B11A75B004F9570 /* CouponScrollViewItem.swift in Sources */,
+				3B94963B2B21EC680053A8E2 /* Date -Extension.swift in Sources */,
 				3B7E52632B132214007E2829 /* MainTabView.swift in Sources */,
 				3B7954732B1A187A00DC513B /* CornerRadiusStyle.swift in Sources */,
 				3B67A30E2B10C67400F80555 /* CouponView.swift in Sources */,
 				3B5B437B2B123AAB004F9570 /* HomeCampaingnView.swift in Sources */,
+				3B9496392B21E6390053A8E2 /* CouponData.swift in Sources */,
 				3B5B43612B119AD1004F9570 /* ReservationView.swift in Sources */,
 				3B5B43692B11A2B4004F9570 /* ContentsHeader.swift in Sources */,
 				3B5B43792B11AC8C004F9570 /* Line.swift in Sources */,
