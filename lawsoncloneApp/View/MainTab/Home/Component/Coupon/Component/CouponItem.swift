@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CouponItem: View {
     // MARK: - プロパティー
+    @StateObject var couponViewModel = CouponViewModel()
 
     // MARK: - ボディー
 
@@ -16,9 +17,9 @@ struct CouponItem: View {
         VStack {
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(TestData.shared.couponItems, id: \.self) { item in
+                    ForEach(couponViewModel.couponDatas) { item in
                         HStack {
-                            CouponScrollViewItem(imageName: item)
+                            CouponScrollViewItem(couponData: item)
                                 .shadow(radius: 2)
                                 .padding(.trailing, 20)
                         }

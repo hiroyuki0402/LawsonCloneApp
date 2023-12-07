@@ -30,6 +30,17 @@ class TestData{
     let partTimeItems = ["partTime", "partTime2", "partTime3"]
     let pickupsItems = ["service9", "reservation5", "campaign3", "otoku4"]
     let noticeItems = ["notice", "notice2", "notice3"]
+
+    let couponData: CouponDatas = [
+        .init(id: "coupon001", image: "coupon", releaseDate: "2023-12-01", title: "コーヒー(M)", kbn: 0, discount: 20, endDate: "2023-12-20"),
+        .init(id: "coupon002", image: "coupon2", releaseDate: "2023-12-02", title: "もっちりとした白いたい焼き　カスタード", kbn: 0, discount: 20, endDate: "2023-12-20"),
+        .init(id: "coupon003", image: "coupon3", releaseDate: "2023-12-03", title: "ごま油香る餃子スープ", kbn: 0, discount: 20, endDate: "2023-12-20"),
+        .init(id: "coupon004", image: "coupon4", releaseDate: "2023-12-04", title: "お餅で包んだ苺ケーキ", kbn: 0, discount: 20, endDate: "2023-12-20"),
+        .init(id: "coupon005", image: "coupon5", releaseDate: "2023-12-05", title: "MILK監修　とろ〜りミルクのクリームコッペ", kbn: 0, discount: 20, endDate: "2023-12-20"),
+        .init(id: "coupon006", image: "coupon6", releaseDate: "2023-12-06", title: "これが炭火焼牛カルビ丼", kbn: 0, discount: 40, endDate: "2023-12-20"),
+        .init(id: "coupon007", image: "coupon7", releaseDate: "2023-12-07", title: "これがロースかつ丼", kbn: 0, discount: 40, endDate: "2023-12-20"),
+        .init(id: "coupon008", image: "coupon8", releaseDate: "2023-12-08", title: "からあげクン　黄金チキン風", kbn: 0, discount: 40, endDate: "2023-12-20")
+    ]
 }
 
 struct OthersItem: Identifiable {
@@ -37,3 +48,5 @@ struct OthersItem: Identifiable {
     var imageName: String
     var title: String
 }
+
+
