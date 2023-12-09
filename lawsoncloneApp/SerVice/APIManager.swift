@@ -37,4 +37,30 @@ final class APIManager {
         let decodedData = try JSONDecoder().decode(type.self, from: data)
         return decodedData
     }
+
+    /// `TestData`インスタンスから指定された型のデータをロードする
+    /// この関数は`Mirror`を使用して`TestData`のプロパティを反映し、
+    /// 要求された型に一致する最初のデータを返す
+    ///
+    /// - Parameter type: ロードするデータの型を指定する`Codable`型
+    ///   この型は、`TestData`クラスに存在するデータと一致する必要がある
+    ///
+    /// - Returns: 指定された型に一致するデータが存在する場合はそのデータを返す
+    ///   一致するデータが存在しない場合は`nil`を返す
+    ///
+    ///   注意: この関数は`TestData`内に同じ型の複数のプロパティが存在する場合、
+    ///   最初に見つかったプロパティのデータを返す
+    ///   したがって、特定のプロパティ名でデータを取得する必要がある場合、
+    ///   この関数は適していない可能性があり
+    func loadTestData<T: Codable>(type: T.Type) -> T? {
+        let mirror = Mirror(reflecting: TestData.shared)
+
+        for child in mirror.children {
+            if let value = child.value as? T {
+                return value
+            }
+        }
+
+        return nil
+    }
 }

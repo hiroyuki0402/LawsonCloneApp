@@ -9,16 +9,17 @@ import SwiftUI
 
 struct CoiponView: View {
     // MARK: - プロパティー
-
+    var itemType: ItemType
+    
     // MARK: - ボディー
 
     var body: some View {
         VStack {
             /// ヘッダー
-            ContentsHeader(title: "すぐに使えるクーポン", isHide: true)
+            SectionHeader(title: itemType.title())
 
             /// コンテンツ
-            CouponItem()
+            CouponItem(itemType: itemType)
 
         }//: VStack
 
@@ -26,5 +27,5 @@ struct CoiponView: View {
 }
 
 #Preview {
-    CoiponView()
+    CoiponView(itemType: .coupon)
 }

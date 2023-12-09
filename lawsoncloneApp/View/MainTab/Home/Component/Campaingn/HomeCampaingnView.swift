@@ -9,19 +9,20 @@ import SwiftUI
 
 struct HomeCampaingnView: View {
     // MARK: - プロパティー
+    @StateObject var campaignViewModel = CampaignViewModel()
 
     // MARK: - ボディー
 
     var body: some View {
         VStack {
             /// ヘッダー
-            ContentsHeader(title: "アプリで参加できるキャンペーン", isHide: true)
+            SectionHeader(title: "アプリで参加できるキャンペーン")
 
             /// コンテンツ
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(TestData.shared.campaignItems, id: \.self) { item in
-                        CampaingnViewItem(imageName: item)
+                    ForEach(campaignViewModel.campaignDatas) { item in
+                        CampaingnViewItem(campaignData: item)
                     }//: ForEach
 
                 }//: HStack

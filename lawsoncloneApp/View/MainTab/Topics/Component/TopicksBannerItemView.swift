@@ -29,7 +29,7 @@ struct TopicksBannerItemView: View {
                         withAnimation {
                             /// 現在のターゲットを更新
                             scrollTarget = (scrollTarget ?? 0) + 1
-                            if var scrollTarget = scrollTarget, scrollTarget >= TestData.shared.bannerItems.count {
+                            if let scrollTarget = scrollTarget, scrollTarget >= TestData.shared.bannerItems.count {
                                 self.scrollTarget = 0
                             }
 

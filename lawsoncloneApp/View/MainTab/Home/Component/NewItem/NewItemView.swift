@@ -18,7 +18,7 @@ struct NewItemView: View {
     var body: some View {
         VStack {
             /// ヘッダー
-            ContentsHeader(title: "新商品", isHide: true)
+            SectionHeader(title: "新商品")
 
             /// コンテンツ
             ScrollView(.horizontal, showsIndicators: false) {
