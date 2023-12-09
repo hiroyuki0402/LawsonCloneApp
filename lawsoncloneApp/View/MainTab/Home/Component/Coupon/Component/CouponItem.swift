@@ -11,15 +11,16 @@ struct CouponItem: View {
     // MARK: - プロパティー
     @StateObject var couponViewModel = CouponViewModel()
 
+    var itemType: ItemType
     // MARK: - ボディー
 
     var body: some View {
         VStack {
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(couponViewModel.couponDatas) { item in
+                    ForEach(couponViewModel.getCoupons(item: itemType)) { item in
                         HStack {
-                            CouponScrollViewItem(couponData: item)
+                            CouponScrollViewItem(couponData: item, itemType: itemType)
                                 .shadow(radius: 2)
                                 .padding(.trailing, 20)
                         }
@@ -36,6 +37,6 @@ struct CouponItem: View {
 }
 
 #Preview {
-    CouponItem()
+    CouponItem(itemType: .coupon)
         .background(Color.gray)
 }

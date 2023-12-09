@@ -7,8 +7,28 @@
 
 import SwiftUI
 
-struct ContentsHeader: View {
-    var title: String
+enum ContentsHeaderItem: Int, CaseIterable, Identifiable {
+    case christmas
+    case newYear
+
+
+    var id: Int {
+        return self.rawValue
+    }
+
+    func sectionTitle(for year: Int) -> String {
+        switch self {
+        case .newYear:
+            return "\(year)おせち"
+        case .christmas:
+            return "\(year)クリスマス"
+        }
+    }
+}
+
+struct ContentsHeaderView: View {
+    var item: ContentsHeaderItem
+    var year: Int
     var isHide: Bool = false
     var fontSize: CGFloat = 17
     var body: some View {
@@ -18,28 +38,18 @@ struct ContentsHeader: View {
                     addDivider(color: .navigationBar, width: 1.5, height: 50)
                 }
 
-                Text(title)
+                Text(item.sectionTitle(for: year))
                     .font(.system(size: fontSize))
                     .foregroundColor(.black)
                     .fontWeight(.semibold)
             }
 
             Spacer()
-
-            Button {
-
-            } label: {
-                Text("すべて見る")
-                    .font(.system(size: 17))
-                    .fontWeight(.semibold)
-                    .foregroundColor(.blue)
-                    .padding(.trailing, 15)
-            }
         }
     }
 }
 
 #Preview {
-    ContentsHeader(title: "テスト")
+    ContentsHeaderView(item: .christmas, year: 2023)
         .padding()
 }

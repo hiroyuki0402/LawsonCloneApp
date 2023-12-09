@@ -9,12 +9,8 @@ import SwiftUI
 
 struct CampaingnViewItem: View {
     // MARK: - プロパティー
-
-    /// 画像名前
-    var imageName: String
-
-    /// 応募が終了かのフラグ
-    var isEnd: Bool = false
+    var campaignData: CampaignData
+    @State private var isWebViewPresented = false
 
     // MARK: - ボディー
 
@@ -27,13 +23,26 @@ struct CampaingnViewItem: View {
             contentsDescripsion
 
             /// 応募ステータス
-            if !isEnd {
-                contentsEnd
-            }
+            contentsEnd
+
         }//: VStack
         .frame(width: 150, height: 170)
+        .onTapGesture {
+            isWebViewPresented.toggle()
+        }
+        .fullScreenCover(isPresented: $isWebViewPresented) {
+            if let url = campaignData.url {
+                // TODO: - 不安定のため見直す
+                WebViewContainer(url: url)
+            }
+        }
 
     }//: ボディー
+
+    private func isStatus() -> Bool {
+        /// 終了どうかを判定
+        return DateFormatter.isWithinDaysToEndDate(from: campaignData.endDate, format: .yyyyMMdd, days: 0).0
+    }
 }
 
 // MARK: - CampaingnViewItemアイテム
@@ -41,7 +50,7 @@ struct CampaingnViewItem: View {
 private extension CampaingnViewItem {
     /// コンテンツの画像
     private var contentsImage: some View {
-        Image(imageName)
+        Image(campaignData.image)
             .resizable()
             .scaledToFill()
             .frame(width: 150, height: 100)
@@ -49,7 +58,7 @@ private extension CampaingnViewItem {
 
     /// 説明
     private var contentsDescripsion: some View {
-        Text("韓国フェア アプリくじジャンボ")
+        Text(campaignData.title)
             .lineLimit(2)
             .font(.footnote)
     }
@@ -63,13 +72,13 @@ private extension CampaingnViewItem {
                 .fontWeight(.semibold)
                 .font(.caption)
                 .background(Color(uiColor: .systemGray5))
-            .clipShape(.capsule)
+                .clipShape(.capsule)
+                .opacity(isStatus() ? 1.0: 0)
             Spacer()
         }
     }
 }
 
 #Preview {
-    CampaingnViewItem(imageName: "campaign2")
-        .background(Color.blue)
+    CampaingnViewItem(campaignData: CampaignViewModel().campaignDatas[0])
 }

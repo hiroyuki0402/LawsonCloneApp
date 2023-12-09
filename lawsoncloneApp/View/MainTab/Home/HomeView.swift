@@ -57,25 +57,28 @@ struct HomeView: View {
                         .padding()
 
                     ///  予約
-                    ReservationView()
+                    ReservationView(reservationHeaderItem: .christmas)
                         .padding(.leading)
                         .padding(.top)
                         .padding(.bottom, 20)
-                    /// おせち
-                    OsechiView()
-                        .padding(.leading)
-                        .padding(.top)
-                        .padding(.bottom, 20)
+                    
                     /// クーポン
-                    CoiponView()
+                    CoiponView(itemType: .coupon)
                         .padding(.leading)
                         .padding(.top)
                         .padding(.bottom, 20)
+
+                    /// クーポン
+                    CoiponView(itemType: .exchange)
+                        .padding(.leading)
+                        .padding(.top)
+                        .padding(.bottom, 20)
+
                     /// キャンペーン
                     HomeCampaingnView()
                         .padding(.leading)
                         .padding(.top)
-                        .padding(.bottom, 30)
+                        .padding(.bottom, 20)
 
                     /// 新商品
                     NewItemView()

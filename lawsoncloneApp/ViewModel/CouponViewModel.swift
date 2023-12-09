@@ -7,20 +7,29 @@
 
 import SwiftUI
 
-class CouponViewModel:  ObservableObject {
-    @Published var couponDatas: CouponDatas = []
+class CouponViewModel: ObservableObject {
+    @Published var originalCouponDatas: CouponDatas = []
 
     init() {
-        lodaDate()
+        lodaData()
     }
 
 
-    private func lodaDate() {
-        couponDatas = TestData.shared.couponData
+    private func lodaData() {
+        originalCouponDatas = TestData.shared.couponData
+    }
+
+    func getCoupons(item: ItemType) -> CouponDatas {
+        switch item {
+        case .coupon:
+            return originalCouponDatas.filter({ $0.kbn == item.rawValue})
+        case .exchange:
+            return originalCouponDatas.filter({ $0.kbn == item.rawValue})
+        }
     }
 
     func getCouponData(at index: Int) -> CouponData {
-        return couponDatas[index]
+        return originalCouponDatas[index]
     }
 }
 

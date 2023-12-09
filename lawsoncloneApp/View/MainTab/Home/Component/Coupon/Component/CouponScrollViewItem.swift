@@ -7,9 +7,24 @@
 
 import SwiftUI
 
+enum ItemType: Int, CaseIterable {
+    case coupon
+    case exchange
+
+    func title() -> String {
+        switch self {
+        case .coupon:
+            return "すぐに使えるクーポン"
+        case .exchange:
+            return "お試し引換券"
+        }
+    }
+}
+
 struct CouponScrollViewItem: View {
     // MARK: - プロパティー
     var couponData: CouponData
+    var itemType: ItemType
 
     // MARK: - ボディー
 
@@ -17,6 +32,7 @@ struct CouponScrollViewItem: View {
         VStack(spacing: 0) {
             /// クーポン画像
             couponImageItem
+                .padding(.all, 10)
 
 
             /// あと何日
@@ -29,14 +45,14 @@ struct CouponScrollViewItem: View {
                 .padding(.horizontal, 6)
                 .padding(.top, 2)
 
-
             /// 区切り線
             divider
                 .padding(.horizontal, 15)
 
             /// 割引金額
             discount
-                .padding([.bottom, .top], 15)
+                .padding(.bottom, 10)
+                .padding(.top, 5)
 
         }//: VStack
         .frame(width: 200, height: 270)
@@ -89,13 +105,13 @@ private extension CouponScrollViewItem {
 
     /// クーポン説明
     private var couponDescription: some View {
-        HStack {
+        VStack {
             Text(couponData.title)
+                .font(.system(size: 17))
+                .padding(.horizontal, 8)
+                .frame(width: 200, height: 44, alignment: .topLeading)
                 .lineLimit(2)
                 .padding(.bottom, 10)
-                .frame(height: 60)
-                .multilineTextAlignment(.leading)
-            Spacer()
         }
     }
 
@@ -111,10 +127,13 @@ private extension CouponScrollViewItem {
     /// 割引金額
     private var discount: some View {
         HStack(alignment: .bottom, spacing: 1) {
-            Text(couponData.discount.description)
-                .font(.title2)
+            HStack {
+                Text(couponData.discount.description + (itemType == .coupon ? "": "pt") )
+                    .foregroundStyle(itemType == .coupon ? .black: .orange)
+                    .font(.title2)
                 .fontWeight(.semibold)
-            Text("円引")
+            }
+            Text(itemType == .coupon ? "円引": "で引換")
                 .font(.footnote)
                 .fontWeight(.semibold)
                 .padding(.bottom, 2)
@@ -123,6 +142,6 @@ private extension CouponScrollViewItem {
 }
 
 #Preview {
-    CouponScrollViewItem(couponData: CouponViewModel().getCouponData(at: 7))
+    CouponScrollViewItem(couponData: CouponViewModel().getCouponData(at: 0), itemType: .exchange)
         .background(Color.gray)
 }

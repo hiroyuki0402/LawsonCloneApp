@@ -16,7 +16,7 @@ class TestData{
     let osechiItems = ["Osechi", "Osechi2", "Osechi3", "Osechi4", "Osechi5"]
     let couponItems = ["coupon", "coupon2", "coupon3", "coupon4", "coupon5", "coupon6", "coupon7", "coupon8"]
     let campaignItems = ["campaign", "campaign2", "campaign3"]
-    let newItems = ["newItem", "newItem2", "newItem3", "newItem4", "newItem5", "newItem6", "newItem7", "newItem8", "newItem9"]
+    let newItems = ["newItem", "newItem2", "newItem3", "newItem4", "newItem5", "newItem6", "newItem7", "newItem8", "newItem9", "newItem"]
     let othersItems: [OthersItem] = [
         .init(imageName: "storefront", title: "店舗検索"),
         .init(imageName: "smartphone", title: "スマホレジ"),
@@ -39,7 +39,16 @@ class TestData{
         .init(id: "coupon005", image: "coupon5", releaseDate: "2023-12-05", title: "MILK監修　とろ〜りミルクのクリームコッペ", kbn: 0, discount: 20, endDate: "2023-12-20"),
         .init(id: "coupon006", image: "coupon6", releaseDate: "2023-12-06", title: "これが炭火焼牛カルビ丼", kbn: 0, discount: 40, endDate: "2023-12-20"),
         .init(id: "coupon007", image: "coupon7", releaseDate: "2023-12-07", title: "これがロースかつ丼", kbn: 0, discount: 40, endDate: "2023-12-20"),
-        .init(id: "coupon008", image: "coupon8", releaseDate: "2023-12-08", title: "からあげクン　黄金チキン風", kbn: 0, discount: 40, endDate: "2023-12-20")
+        .init(id: "coupon008", image: "coupon8", releaseDate: "2023-12-08", title: "からあげクン　黄金チキン風", kbn: 0, discount: 40, endDate: "2023-12-20"),
+        .init(id: "coupon009", image: "coupon9", releaseDate: "2023-12-08", title: "ゴールドマスター生オフ　350ml", kbn: 1, discount: 40, endDate: "2023-12-20"),
+        .init(id: "coupon010", image: "coupon10", releaseDate: "2023-12-08", title: "さくふわ食感のベルギーワッフル　1個入", kbn: 1, discount: 40, endDate: "2023-12-20"),
+        .init(id: "coupon011", image: "coupon11", releaseDate: "2023-12-08", title: "メガアイスカフェラテ", kbn: 1, discount: 40, endDate: "2023-12-20")
+    ]
+
+    let campaignData: CampaignDatas = [
+        .init(id: "campaign-001", image: "campaign", url: URL(string: "https://www.lawson.co.jp/lab/campaign/hololive/"), endDate: "2023-12-09", title: "「ホロライブ」キャンペーン オリジナルグッズを手に入れよう！"),
+        .init(id: "campaign-002", image: "campaign2", url: URL(string: "https://www.lawson.co.jp/lab/campaign/hypnosismic/"), endDate: "2023-12-31", title: "『ヒプノシスマイク-Division Rap Battle-』Rhyme Anima ＋ キャンペーンオリジナルグッズを手に入れよう！"),
+        .init(id: "campaign-003", image: "campaign3", url: URL(string: "https://www.lawson.co.jp/lab/campaign/spyfamily/"), endDate: "2023-12-31", title: "[予告]『劇場版 SPY×FAMILY CODE: White』キャンペーンオリジナルグッズを手に入れよう！")
     ]
 }
 
