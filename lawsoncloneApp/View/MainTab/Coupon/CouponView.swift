@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CouponView: View {
     // MARK: - プロパティー
-
+    @State private var selectedGenre: GenreItem = .all
 
     // MARK: - 初期化
 
@@ -41,15 +41,15 @@ struct CouponView: View {
 
                 Section(header: ZStack(alignment: .leading) {
                     Color.clear.frame(maxWidth: .infinity)
-                    HeaderView()
+                    HeaderView(selectedGenre: $selectedGenre)
                     
                 }
                     .listRowInsets(EdgeInsets())
                 ) {
 
                     // その他のリストアイテム
-                    ForEach(TestData.shared.couponItems, id: \.self) { item in
-                        CouponItemView(image: item)
+                    ForEach(filteredItems(for: selectedGenre)) { item in
+                        CouponItemView(image: item.image)
 
                         /// アイテム間のスペース
                             .padding(.vertical, 10)
@@ -80,6 +80,36 @@ struct CouponView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }//: ボディー
+
+    // MARK: - メソッド
+
+    // データをフィルタリングするメソッド
+    private func filteredItems(for genre: GenreItem) -> CouponDatas {
+        switch genre {
+        case .all:
+            return TestData.shared.couponData
+        case .pan:
+            return  [
+                TestData.shared.couponData[1],
+                TestData.shared.couponData[9],
+                TestData.shared.couponData[0]
+            ]
+        case .bento:
+            return  [TestData.shared.couponData[2]]
+        case .chukaman:
+            return [TestData.shared.couponData[3]]
+        case .desert:
+            return  [TestData.shared.couponData[4]]
+        case .men:
+            return  [TestData.shared.couponData[5]]
+        case .others:
+            return  [TestData.shared.couponData[6]]
+        case .currentUser:
+            return  [TestData.shared.couponData[7]]
+        case .ls100:
+            return  [TestData.shared.couponData[8]]
+        }
+    }
 }
 
 #Preview {
