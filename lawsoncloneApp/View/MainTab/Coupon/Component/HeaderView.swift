@@ -9,11 +9,12 @@ import SwiftUI
 
 struct HeaderView: View {
     // MARK: - プロパティー
+    @Binding var selectedGenre: GenreItem
 
     // MARK: - ボディー
     var body: some View {
         VStack {
-            HeaderViewItem()
+            HeaderViewItem(couponGenre: $selectedGenre)
                 .frame(maxWidth: .infinity)
                 .padding(.bottom, 10)
         }
@@ -23,5 +24,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView()
+    HeaderView(selectedGenre: .constant(.all))
 }
