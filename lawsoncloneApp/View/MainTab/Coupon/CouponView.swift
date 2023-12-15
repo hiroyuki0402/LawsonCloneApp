@@ -11,6 +11,7 @@ import SwiftUI
 struct CouponView: View {
     // MARK: - プロパティー
     @State private var selectedGenre: GenreItem = .all
+    @StateObject var couponViewModel = CouponViewModel()
 
     // MARK: - 初期化
 
@@ -48,8 +49,8 @@ struct CouponView: View {
                 ) {
 
                     // その他のリストアイテム
-                    ForEach(filteredItems(for: selectedGenre)) { item in
-                        CouponItemView(coupondata2: TestData.shared.couponData2[0])
+                    ForEach(couponViewModel.filteredItems(for: selectedGenre)) { item in
+                        CouponItemView(coupondata2: item)
 
                         /// アイテム間のスペース
                             .padding(.vertical, 10)

@@ -123,36 +123,36 @@ class TestData{
 
 
         //そのとあ
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l643077_4.jpg", type: 0, releaseDate: "2023-12-01", title: "重慶飯店監修　大海老のチリソース", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
+        .init(id: "coupon029", image: "https://www.lawson.co.jp/recommend/original/detail/img/l643077_4.jpg", type: 0, releaseDate: "2023-12-01", title: "重慶飯店監修　大海老のチリソース", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l694454_1.jpg", type: 0, releaseDate: "2023-12-01", title: "重慶飯店監修　大海老のマヨソース", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
+        .init(id: "coupon030", image: "https://www.lawson.co.jp/recommend/original/detail/img/l694454_1.jpg", type: 0, releaseDate: "2023-12-01", title: "重慶飯店監修　大海老のマヨソース", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l733528.jpg", type: 0, releaseDate: "2023-12-01", title: "なすび亭監修　豚の角煮", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
+        .init(id: "coupon031", image: "https://www.lawson.co.jp/recommend/original/detail/img/l733528.jpg", type: 0, releaseDate: "2023-12-01", title: "なすび亭監修　豚の角煮", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l733533.jpg", type: 0, releaseDate: "2023-12-01", title: "肉卸小島監修　牛すじ煮込", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
+        .init(id: "coupon032", image: "https://www.lawson.co.jp/recommend/original/detail/img/l733533.jpg", type: 0, releaseDate: "2023-12-01", title: "肉卸小島監修　牛すじ煮込", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l557347_4.jpg", type: 0, releaseDate: "2023-12-01", title: "ミックスサラダ", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
+        .init(id: "coupon033", image: "https://www.lawson.co.jp/recommend/original/detail/img/l557347_4.jpg", type: 0, releaseDate: "2023-12-01", title: "ミックスサラダ", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l575780_4.jpg", type: 0, releaseDate: "2023-12-01", title: "コーンミックスサラダ", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
+        .init(id: "coupon034", image: "https://www.lawson.co.jp/recommend/original/detail/img/l575780_4.jpg", type: 0, releaseDate: "2023-12-01", title: "コーンミックスサラダ", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l584824_4.jpg", type: 0, releaseDate: "2023-12-01", title: "大根ミックスサラダ", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
+        .init(id: "coupon035", image: "https://www.lawson.co.jp/recommend/original/detail/img/l584824_4.jpg", type: 0, releaseDate: "2023-12-01", title: "大根ミックスサラダ", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 6),
 
 
         //会員限定
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l744636.jpg", type: 0, releaseDate: "2023-12-01", title: "UHA味覚糖　コグミ　サクラクレパス　袋　60g", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 7),
+        .init(id: "coupon036", image: "https://www.lawson.co.jp/recommend/original/detail/img/l744636.jpg", type: 0, releaseDate: "2023-12-01", title: "UHA味覚糖　コグミ　サクラクレパス　袋　60g", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 7),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l740887.jpg", type: 0, releaseDate: "2023-12-01", title: "サンヨー食品　サッポロ一番　博多一双監修　泡系濃厚豚骨ラーメン", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 7),
+        .init(id: "coupon037", image: "https://www.lawson.co.jp/recommend/original/detail/img/l740887.jpg", type: 0, releaseDate: "2023-12-01", title: "サンヨー食品　サッポロ一番　博多一双監修　泡系濃厚豚骨ラーメン", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 7),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l742020.jpg", type: 0, releaseDate: "2023-12-01", title: "徳島産業　スプーンで食べる　まるで蜜芋　70g", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 7),
+        .init(id: "coupon038", image: "https://www.lawson.co.jp/recommend/original/detail/img/l742020.jpg", type: 0, releaseDate: "2023-12-01", title: "徳島産業　スプーンで食べる　まるで蜜芋　70g", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 7),
 
-        .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l741391.jpg", type: 0, releaseDate: "2023-12-01", title: "サンガリア　ゼロサワー　アップル　350ml", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 7),
+        .init(id: "coupon039", image: "https://www.lawson.co.jp/recommend/original/detail/img/l741391.jpg", type: 0, releaseDate: "2023-12-01", title: "サンガリア　ゼロサワー　アップル　350ml", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 7),
 
 
 
         // １００
-        .init(id: "coupon001", image: "https://store100.lawson.co.jp/product/valueline/detail/__icsFiles/afieldfile/2023/12/05/ikidorayaki.jpg", type: 0, releaseDate: "2023-12-01", title: "生どら焼き（芋あん＆芋ホイップ）", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 2),
+        .init(id: "coupon040", image: "https://store100.lawson.co.jp/product/valueline/detail/__icsFiles/afieldfile/2023/12/05/ikidorayaki.jpg", type: 0, releaseDate: "2023-12-01", title: "生どら焼き（芋あん＆芋ホイップ）", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 8),
 
-        .init(id: "coupon001", image: "https://store100.lawson.co.jp/product/valueline/detail/__icsFiles/afieldfile/2023/09/20/dezato_natadekokoyoguruto.jpg", type: 0, releaseDate: "2023-12-01", title: "ナタデココヨーグルトデザート", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 2),
+        .init(id: "coupon041", image: "https://store100.lawson.co.jp/product/valueline/detail/__icsFiles/afieldfile/2023/09/20/dezato_natadekokoyoguruto.jpg", type: 0, releaseDate: "2023-12-01", title: "ナタデココヨーグルトデザート", kbn: 0, discount: 20, endDate: "2024-12-20", genre: 8),
 
     ]
 
