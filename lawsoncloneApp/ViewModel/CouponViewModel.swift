@@ -29,7 +29,7 @@ class CouponViewModel: ObservableObject {
     private func fetchCouponsFromFirestore() {
         Task {
             do {
-                let coupondatas2 = try await APIManager.shred.fetchFirestoreCollection(fromCollectionPath: "acquiredCoupons", as: CouponDatas2.self)
+                coupondatas2 = try await APIManager.shred.fetchFirestoreCollection(fromCollectionPath: "acquiredCoupons", as: CouponData2.self)
                 print(coupondatas2)
             } catch {
                 // エラーハンドリング
@@ -49,6 +49,15 @@ class CouponViewModel: ObservableObject {
 
     func getCouponData(at index: Int) -> CouponData {
         return originalCouponDatas[index]
+    }
+
+    func filteredItems(for genre: GenreItem) -> CouponDatas2 {
+        switch genre {
+        case .all:
+            return coupondatas2
+        case .pan, .bento, .chukaman, .desert, .men, .others, .currentUser, .ls100:
+            return coupondatas2.filter { $0.genre == genre.rawValue }
+        }
     }
 }
 
