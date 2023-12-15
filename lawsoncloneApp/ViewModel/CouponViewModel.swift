@@ -6,17 +6,36 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class CouponViewModel: ObservableObject {
     @Published var originalCouponDatas: CouponDatas = []
+    @Published var coupondatas2: CouponDatas2 = []
 
     init() {
+        Task {
+             await fetchCouponsFromFirestore()
+        }
         lodaData()
     }
 
 
     private func lodaData() {
         originalCouponDatas = TestData.shared.couponData
+    }
+
+    @MainActor
+    private func fetchCouponsFromFirestore() {
+        Task {
+            do {
+                let coupondatas2 = try await APIManager.shred.fetchFirestoreCollection(fromCollectionPath: "acquiredCoupons", as: CouponDatas2.self)
+                print(coupondatas2)
+            } catch {
+                // エラーハンドリング
+                print(error)
+            }
+        }
     }
 
     func getCoupons(item: ItemType) -> CouponDatas {
