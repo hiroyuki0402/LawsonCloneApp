@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CouponItemView: View {
     // MARK: - プロパティー
-    var image: String
+    var coupondata2: CouponData2
 
     // MARK: - ボディー
 
@@ -31,10 +31,14 @@ struct CouponItemView: View {
 
                 VStack {
                     HStack {
-                        Image(image)
-                            .resizable()
-                            .frame(width: 200, height: 150)
-                            .padding(.trailing, 5)
+                        AsyncImage(url: URL(string: coupondata2.image)) { image in
+                            image
+                                .resizable()
+                                .frame(width: 200, height: 150)
+                                .padding(5)
+                        } placeholder: {
+                            ProgressView()
+                        }
                         HStack(alignment: .top, spacing: 0) {
                             VStack(spacing: 0) {
                                 Text("【100円引】昼食時間帯におにぎりの購入を促すための割引です。")
@@ -115,7 +119,7 @@ struct CouponItemView: View {
 
 #Preview {
     List {
-        CouponItemView(image: TestData.shared.couponItems[0])
+        CouponItemView(coupondata2: TestData.shared.couponData2[0])
             .background(Color.black)
             .listRowInsets(EdgeInsets())
             .listRowBackground(Color.clear)

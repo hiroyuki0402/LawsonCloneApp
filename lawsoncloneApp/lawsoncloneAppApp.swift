@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct lawsoncloneAppApp: App {
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     var body: some Scene {
-        WindowGroup {
+      WindowGroup {
+        NavigationView {
             MainTabView()
         }
+      }
     }
-}
-
+  }

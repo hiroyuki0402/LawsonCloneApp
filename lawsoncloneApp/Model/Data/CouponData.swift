@@ -17,4 +17,17 @@ struct CouponData: Identifiable, Codable {
     let endDate: String
 }
 
+struct CouponData2: Identifiable, Codable {
+    let id: String
+    let image: String
+    let type: Int
+    let releaseDate: String
+    let title: String
+    let kbn: Int
+    let discount: Int
+    let endDate: String
+    let genre: Int
+}
+
 typealias CouponDatas = [CouponData]
+typealias CouponDatas2 = [CouponData2]

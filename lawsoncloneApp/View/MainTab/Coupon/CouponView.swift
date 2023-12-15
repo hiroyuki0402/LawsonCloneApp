@@ -49,7 +49,7 @@ struct CouponView: View {
 
                     // その他のリストアイテム
                     ForEach(filteredItems(for: selectedGenre)) { item in
-                        CouponItemView(image: item.image)
+                        CouponItemView(coupondata2: TestData.shared.couponData2[0])
 
                         /// アイテム間のスペース
                             .padding(.vertical, 10)

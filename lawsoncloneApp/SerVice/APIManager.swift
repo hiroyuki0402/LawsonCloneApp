@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 final class APIManager {
 
@@ -62,5 +64,20 @@ final class APIManager {
         }
 
         return nil
+    }
+    /// 指定されたFirestoreのコレクションから全てのドキュメントを非同期に取得し、指定された型にデコードする
+    /// - Parameters:
+    ///   - collectionPath: Firestore内のコレクションへのパス
+    ///   - type: デコードする対象の型。この型はCodableプロトコルに準拠している必要がある
+    /// - Returns: デコードされたデータの配列。データが存在しない、またはデコードに失敗した場合は空の配列を返す
+    /// - Throws: Firestoreのエラー。コレクションが存在しない、またはデータのデコードに失敗した場合にエラーを投げる
+    func fetchFirestoreCollection<T: Codable>(fromCollectionPath collectionPath: String, as type: T.Type) async throws -> [T] {
+        let db = Firestore.firestore()
+        let collectionRef = db.collection(collectionPath)
+
+        let snapshot = try await collectionRef.getDocuments()
+        return try snapshot.documents.compactMap { document in
+            try document.data(as: type)
+        }
     }
 }
