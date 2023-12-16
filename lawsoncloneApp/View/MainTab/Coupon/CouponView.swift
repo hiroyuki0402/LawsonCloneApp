@@ -10,7 +10,15 @@ import SwiftUI
 
 struct CouponView: View {
     // MARK: - プロパティー
+
+    /// 選択したジャンル
     @State private var selectedGenre: GenreItem = .all
+
+    @State private var selectedTab: TabItem = .now
+
+    @State private var bannerHide: Bool = false
+
+    /// Viewモデル
     @StateObject var couponViewModel = CouponViewModel()
 
     // MARK: - 初期化
@@ -37,78 +45,107 @@ struct CouponView: View {
         NavigationStack {
             List {
 
-                PermissionBannerView()
-                    .listRowSeparator(.hidden)
+                switch selectedTab {
+                case .now:
+                    permissionBannerView
+                    couponShowArea
 
-                Section(header: ZStack(alignment: .leading) {
-                    Color.clear.frame(maxWidth: .infinity)
-                    HeaderView(selectedGenre: $selectedGenre)
-                    
+                case .trial:
+                    permissionBannerView
+                    trialView
                 }
-                    .listRowInsets(EdgeInsets())
-                ) {
 
-                    // その他のリストアイテム
-                    ForEach(couponViewModel.filteredItems(for: selectedGenre)) { item in
-                        CouponItemView(coupondata2: item)
-
-                        /// アイテム間のスペース
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 10)
-                        /// デフォルトのインセットを取り除く
-                            .listRowInsets(EdgeInsets())
-                        /// リスト行の背景を透明に設定
-                            .listRowBackground(Color.clear)
-                    }
-                }
-                .listRowSeparator(.hidden)
-            }
+            }//: List
             .scrollIndicators(.hidden)
             .listStyle(.plain)
             .background(Color(.systemGray6))
             .toolbar {
                 /// 設定
                 ToolbarItem(placement: .topBarTrailing) {
-                    Image(systemName: "info.circle")
-                        .resizable()
-                        .font(.callout)
-                        .padding(2)
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(.white)
+                    infomationBarbuttonItem
                 }
             }
             .navigationTitle(NSLocalizedString("CouponNaigationTitle", comment: ""))
             .navigationBarTitleDisplayMode(.inline)
+
+        }//: NavigationStack
+    }//: ボディ
+}
+
+// MARK: - CouponViewアイテム
+
+private extension CouponView {
+
+    /// プッシュ通知許諾バナー
+    private var permissionBannerView: some View {
+        PermissionBannerView(isHide: bannerHide, complision: {
+            bannerHide = true
+        })
+            .listRowSeparator(.hidden)
+    }
+
+    /// クーポン表示エリア
+    private var couponShowArea: some View {
+        Section(header: ZStack(alignment: .leading) {
+            Color.clear.frame(maxWidth: .infinity)
+            HeaderView(selectedGenre: $selectedGenre, selectedTab: $selectedTab)
+
         }
-    }//: ボディー
+            .listRowInsets(EdgeInsets())
+        ) {
 
-    // MARK: - メソッド
+            /// クーポンのセル
+            ForEach(couponViewModel.filteredItems(for: selectedGenre)) { item in
+                /// クーポン
+                CouponItemView(coupondata: item)
+                    /// アイテム間のスペース
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 10)
 
-    // データをフィルタリングするメソッド
-    private func filteredItems(for genre: GenreItem) -> CouponDatas {
-        switch genre {
-        case .all:
-            return TestData.shared.couponData
-        case .pan:
-            return  [
-                TestData.shared.couponData[1],
-                TestData.shared.couponData[9],
-                TestData.shared.couponData[0]
-            ]
-        case .bento:
-            return  [TestData.shared.couponData[2]]
-        case .chukaman:
-            return [TestData.shared.couponData[3]]
-        case .desert:
-            return  [TestData.shared.couponData[4]]
-        case .men:
-            return  [TestData.shared.couponData[5]]
-        case .others:
-            return  [TestData.shared.couponData[6]]
-        case .currentUser:
-            return  [TestData.shared.couponData[7]]
-        case .ls100:
-            return  [TestData.shared.couponData[8]]
+                    /// デフォルトのインセットを取り除く
+                    .listRowInsets(EdgeInsets())
+
+                    /// リスト行の背景を透明に設定
+                    .listRowBackground(Color.clear)
+            }
+        }
+        .listRowSeparator(.hidden)
+    }
+
+    /// ヘルプ
+    private var infomationBarbuttonItem: some View {
+        Image(systemName: "info.circle")
+            .resizable()
+            .font(.callout)
+            .padding(2)
+            .frame(width: 24, height: 24)
+            .foregroundColor(.white)
+    }
+
+    private var trialView: some View {
+
+        Section(header: ZStack(alignment: .leading) {
+            Color.clear.frame(maxWidth: .infinity)
+            HeaderView(selectedGenre: $selectedGenre, selectedTab: $selectedTab)
+
+        }
+            .listRowInsets(EdgeInsets())
+        ) {
+
+            /// クーポンのセル(引換券)
+            ForEach(couponViewModel.coupondatas) { item in
+                /// クーポン
+                TrialView(coupondata: item)
+                /// アイテム間のスペース
+                    .padding(.vertical, 3)
+
+                /// デフォルトのインセットを取り除く
+                    .listRowInsets(EdgeInsets())
+
+                /// リスト行の背景を透明に設定
+                    .listRowBackground(Color.clear)
+            }
+            .listRowSeparator(.hidden)
         }
     }
 }

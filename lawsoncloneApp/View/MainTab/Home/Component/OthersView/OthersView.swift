@@ -9,8 +9,10 @@ import SwiftUI
 
 struct OthersView: View {
     // MARK: - プロパティー
+    /// 背景色
     private let backGroundColor = #colorLiteral(red: 0.8825963363, green: 0.9416703575, blue: 1, alpha: 0.703125)
 
+    /// その他に表示するアイテム
     private var othersItem: [OthersItem] {
         return TestData.shared.othersItems
     }

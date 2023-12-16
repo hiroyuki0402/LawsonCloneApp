@@ -33,17 +33,17 @@ class TestData{
     let noticeItems = ["notice", "notice2", "notice3"]
 
     let couponData: CouponDatas = [
-        .init(id: "coupon001", image: "coupon", releaseDate: "2023-12-01", title: "コーヒー(M)", kbn: 0, discount: 20, endDate: "2023-12-20"),
-        .init(id: "coupon002", image: "coupon2", releaseDate: "2023-12-02", title: "もっちりとした白いたい焼き　カスタード", kbn: 0, discount: 20, endDate: "2023-12-20"),
-        .init(id: "coupon003", image: "coupon3", releaseDate: "2023-12-03", title: "ごま油香る餃子スープ", kbn: 0, discount: 20, endDate: "2023-12-20"),
-        .init(id: "coupon004", image: "coupon4", releaseDate: "2023-12-04", title: "お餅で包んだ苺ケーキ", kbn: 0, discount: 20, endDate: "2023-12-20"),
-        .init(id: "coupon005", image: "coupon5", releaseDate: "2023-12-05", title: "MILK監修　とろ〜りミルクのクリームコッペ", kbn: 0, discount: 20, endDate: "2023-12-20"),
-        .init(id: "coupon006", image: "coupon6", releaseDate: "2023-12-06", title: "これが炭火焼牛カルビ丼", kbn: 0, discount: 40, endDate: "2023-12-20"),
-        .init(id: "coupon007", image: "coupon7", releaseDate: "2023-12-07", title: "これがロースかつ丼", kbn: 0, discount: 40, endDate: "2023-12-20"),
-        .init(id: "coupon008", image: "coupon8", releaseDate: "2023-12-08", title: "からあげクン　黄金チキン風", kbn: 0, discount: 40, endDate: "2023-12-20"),
-        .init(id: "coupon009", image: "coupon9", releaseDate: "2023-12-08", title: "ゴールドマスター生オフ　350ml", kbn: 1, discount: 40, endDate: "2023-12-20"),
-        .init(id: "coupon010", image: "coupon10", releaseDate: "2023-12-08", title: "さくふわ食感のベルギーワッフル　1個入", kbn: 1, discount: 40, endDate: "2023-12-20"),
-        .init(id: "coupon011", image: "coupon11", releaseDate: "2023-12-08", title: "メガアイスカフェラテ", kbn: 1, discount: 40, endDate: "2023-12-20")
+//        .init(id: "coupon001", image: "coupon", releaseDate: "2023-12-01", title: "コーヒー(M)", kbn: 0, discount: 20, endDate: "2023-12-20"),
+//        .init(id: "coupon002", image: "coupon2", releaseDate: "2023-12-02", title: "もっちりとした白いたい焼き　カスタード", kbn: 0, discount: 20, endDate: "2023-12-20"),
+//        .init(id: "coupon003", image: "coupon3", releaseDate: "2023-12-03", title: "ごま油香る餃子スープ", kbn: 0, discount: 20, endDate: "2023-12-20"),
+//        .init(id: "coupon004", image: "coupon4", releaseDate: "2023-12-04", title: "お餅で包んだ苺ケーキ", kbn: 0, discount: 20, endDate: "2023-12-20"),
+//        .init(id: "coupon005", image: "coupon5", releaseDate: "2023-12-05", title: "MILK監修　とろ〜りミルクのクリームコッペ", kbn: 0, discount: 20, endDate: "2023-12-20"),
+//        .init(id: "coupon006", image: "coupon6", releaseDate: "2023-12-06", title: "これが炭火焼牛カルビ丼", kbn: 0, discount: 40, endDate: "2023-12-20"),
+//        .init(id: "coupon007", image: "coupon7", releaseDate: "2023-12-07", title: "これがロースかつ丼", kbn: 0, discount: 40, endDate: "2023-12-20"),
+//        .init(id: "coupon008", image: "coupon8", releaseDate: "2023-12-08", title: "からあげクン　黄金チキン風", kbn: 0, discount: 40, endDate: "2023-12-20"),
+//        .init(id: "coupon009", image: "coupon9", releaseDate: "2023-12-08", title: "ゴールドマスター生オフ　350ml", kbn: 1, discount: 40, endDate: "2023-12-20"),
+//        .init(id: "coupon010", image: "coupon10", releaseDate: "2023-12-08", title: "さくふわ食感のベルギーワッフル　1個入", kbn: 1, discount: 40, endDate: "2023-12-20"),
+//        .init(id: "coupon011", image: "coupon11", releaseDate: "2023-12-08", title: "メガアイスカフェラテ", kbn: 1, discount: 40, endDate: "2023-12-20")
     ]
 
     let campaignData: CampaignDatas = [
@@ -52,7 +52,7 @@ class TestData{
         .init(id: "campaign-003", image: "campaign3", url: URL(string: "https://www.lawson.co.jp/lab/campaign/spyfamily/"), endDate: "2023-12-31", title: "[予告]『劇場版 SPY×FAMILY CODE: White』キャンペーンオリジナルグッズを手に入れよう！")
     ]
 
-    let couponData2: CouponDatas2 = [
+    let couponData2: CouponDatas = [
         //  パ
         .init(id: "coupon001", image: "https://www.lawson.co.jp/recommend/original/detail/img/l743902.jpg", type: 0, releaseDate: "2023-12-19", title: "トルティーヤ　ベーコン＆クワトロチーズ", kbn: 0, discount: 30, endDate: "2023-12-24", genre: 1),
 
@@ -157,7 +157,7 @@ class TestData{
     ]
 
 
-    func uploadCoupons(_ coupons: CouponDatas2) {
+    func uploadCoupons(_ coupons: CouponDatas) {
         let db = Firestore.firestore()
 
         let batch = db.batch()

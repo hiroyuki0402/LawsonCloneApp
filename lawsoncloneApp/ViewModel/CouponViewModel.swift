@@ -1,63 +1,68 @@
-//
-//  CouponViewModel.swift
-//  lawsoncloneApp
-//
-//  Created by SHIRAISHI HIROYUKI on 2023/12/07.
-//
-
 import SwiftUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class CouponViewModel: ObservableObject {
     @Published var originalCouponDatas: CouponDatas = []
-    @Published var coupondatas2: CouponDatas2 = []
+    @Published var coupondatas: CouponDatas = []
 
+    // MARK: - Initializer
+
+    /// ViewModelの初期化。Firestoreからデータを非同期に取得し、ローカルデータもロードする
     init() {
         Task {
-             await fetchCouponsFromFirestore()
+            await fetchCouponsFromFirestore()
         }
-        lodaData()
+        loadLocalData()
     }
 
+    // MARK: - Data Loading
 
-    private func lodaData() {
+    /// ローカルのテストデータをロードする
+    private func loadLocalData() {
         originalCouponDatas = TestData.shared.couponData
     }
 
+    /// Firestoreからクーポンデータを非同期に取得する
     @MainActor
     private func fetchCouponsFromFirestore() {
         Task {
             do {
-                coupondatas2 = try await APIManager.shred.fetchFirestoreCollection(fromCollectionPath: "acquiredCoupons", as: CouponData2.self)
-                print(coupondatas2)
+                coupondatas = try await APIManager.shred.fetchFirestoreCollection(fromCollectionPath: "acquiredCoupons", as: CouponData.self)
+                print(coupondatas)
             } catch {
-                // エラーハンドリング
-                print(error)
+                print("Firestoreからのデータ取得エラー: \(error)")
             }
         }
     }
 
+    // MARK: - Data Filtering
+
+    /// 指定されたアイテムタイプに基づいてクーポンをフィルタリングする
+    /// - Parameter item: フィルタリングするアイテムタイプ
+    /// - Returns: フィルタリングされたクーポンデータの配列
     func getCoupons(item: ItemType) -> CouponDatas {
-        switch item {
-        case .coupon:
-            return originalCouponDatas.filter({ $0.kbn == item.rawValue})
-        case .exchange:
-            return originalCouponDatas.filter({ $0.kbn == item.rawValue})
-        }
+        // - TODO: 区分の追加
+        //coupondatas.filter { $0.kbn == item.rawValue }
+        coupondatas
     }
 
+    /// 指定されたインデックスのクーポンデータを取得する
+    /// - Parameter index: 取得するクーポンデータのインデックス
+    /// - Returns: 指定されたインデックスのクーポンデータ
     func getCouponData(at index: Int) -> CouponData {
-        return originalCouponDatas[index]
+        originalCouponDatas[index]
     }
 
-    func filteredItems(for genre: GenreItem) -> CouponDatas2 {
+    /// 指定されたジャンルに基づいてクーポンをフィルタリングする
+    /// - Parameter genre: フィルタリングするジャンル
+    /// - Returns: フィルタリングされたクーポンデータの配列
+    func filteredItems(for genre: GenreItem) -> CouponDatas {
         switch genre {
         case .all:
-            return coupondatas2
+            return coupondatas
         case .pan, .bento, .chukaman, .desert, .men, .others, .currentUser, .ls100:
-            return coupondatas2.filter { $0.genre == genre.rawValue }
+            return coupondatas.filter { $0.genre == genre.rawValue }
         }
     }
 }
-

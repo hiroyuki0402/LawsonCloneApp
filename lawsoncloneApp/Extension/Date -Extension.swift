@@ -74,4 +74,32 @@ extension DateFormatter {
 
         return (false, nil)
     }
+    /// 日付の文字列を "年/月/日(曜日)" の形式に変換する
+    ///
+    /// このメソッドは、指定された文字列形式の日付を解析し、日本のロケールに適したフォーマットに変換します。
+    ///
+    /// - Parameter dateString: 変換する日付の文字列。"yyyy-MM-dd" 形式である必要があります。
+    /// - Returns: 変換された日付の文字列。例："2023/12/4(月)"。変換に失敗した場合はnilを返します。
+    ///
+    /// 使用例：
+    /// ```
+    /// let dateString = "2023-12-04"
+    /// if let formattedDate = DateFormatter.toCustomDateString(from: dateString) {
+    ///     print(formattedDate) ⇨ "2023/12/4(月)"
+    /// }
+    /// ```
+    static func toCustomDateString(from dateString: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd" // 入力される日付の形式
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+
+        guard let date = inputFormatter.date(from: dateString) else {
+            return ""
+        }
+
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "yyyy/MM/dd(E)" // 出力する日付の形式
+        outputFormatter.locale = Locale(identifier: "ja_JP") // 日本のロケールを設定
+        return outputFormatter.string(from: date)
+    }
 }

@@ -9,20 +9,25 @@ import SwiftUI
 
 struct HeaderView: View {
     // MARK: - プロパティー
+    /// ジャンル選択時の反映
     @Binding var selectedGenre: GenreItem
+
+    @Binding var selectedTab: TabItem
 
     // MARK: - ボディー
     var body: some View {
         VStack {
-            HeaderViewItem(couponGenre: $selectedGenre)
+            /// ジャンル
+            HeaderViewItem(couponGenre: $selectedGenre, selectedTab: $selectedTab)
                 .frame(maxWidth: .infinity)
                 .padding(.bottom, 10)
-        }
+            
+        }//: VStack
         .background(Color(.systemGray6))
         
-    }//: プロパティー
+    }//: ボディー
 }
 
 #Preview {
-    HeaderView(selectedGenre: .constant(.all))
+    HeaderView(selectedGenre: .constant(.all), selectedTab: .constant(.now))
 }
