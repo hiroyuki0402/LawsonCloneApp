@@ -10,9 +10,14 @@ import SwiftUI
 struct PermissionBannerView: View {
     // MARK: - プロパティー
 
+    var isHide: Bool = false
+
+    var complision: (() -> Void)?
+
     // MARK: - ボディー
 
     var body: some View {
+        if !isHide {
             HStack(spacing: 0) {
                 Image(systemName: "info.circle")
                     .foregroundStyle(.navigationBar)
@@ -24,12 +29,20 @@ struct PermissionBannerView: View {
                     .fontWeight(.light)
                     .fontDesign(.rounded)
 
-                Image(systemName: "xmark.circle.fill")
-                    .foregroundStyle(.gray)
+                Button {
+                    if let complision = complision {
+                        complision()
+                    }
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.gray)
+                }
+
 
             }
             .background(.white)
             .frame(maxWidth: .infinity)
+        }
     }//: ボディー
 }
 

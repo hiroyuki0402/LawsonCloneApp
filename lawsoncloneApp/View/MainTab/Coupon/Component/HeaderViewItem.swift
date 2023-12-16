@@ -7,67 +7,42 @@
 
 import SwiftUI
 
-enum GenreItem: Int, CaseIterable {
-    case `all`
-    case pan
-    case bento
-    case chukaman
-    case desert
-    case men
-    case others
-    case currentUser
-    case ls100
-
-    func title() -> String {
-        switch self {
-        case .all:
-            return "すべて"
-        case .pan:
-            return "パン"
-        case .bento:
-            return "弁当"
-        case .chukaman:
-            return "中華まん"
-        case .desert:
-            return "デザート"
-        case .men:
-            return "麺類"
-        case .others:
-            return "その他"
-        case .currentUser:
-            return "会員限定"
-        case .ls100:
-            return "LS100"
-        }
-    }
-}
-
 struct HeaderViewItem: View {
     // MARK: - プロパティー
     @Binding var couponGenre: GenreItem
 
+    @Binding var selectedTab: TabItem
+
+    /// ボタンバックグラウンドカラー
     var showmoreButtonBackGroundColor = #colorLiteral(red: 0.7870665356, green: 0.8987134874, blue: 0.9764705896, alpha: 1)
+
+    /// ボーダーカラー
     var showmoreButtonBorderColor = #colorLiteral(red: 0.3331833587, green: 0.5659576486, blue: 0.9764705896, alpha: 1)
 
     // MARK: - ボディー
-
     var body: some View {
         VStack {
-            StatusTabView()
+            /// ヘッダータブ
+            StatusTabView(selectedTab: $selectedTab)
                 .padding(.bottom, 10)
 
-            HStack {
-
+            if selectedTab == .now {
+                HStack {
+                /// 全て
                 shoreMoreButton
 
+                /// ジャンル
                 ScrollView(.horizontal, showsIndicators: false) {
                     genreButton
                         .padding(.trailing, 10)
-                }
 
-            }
-            .padding(.leading, 10)
+                }//: ScrollView
+
+            }//: HStack
+                .padding(.leading, 10)
         }
+
+        }//: VStack
     }//: ボディー
 }
 
@@ -129,7 +104,46 @@ private extension HeaderViewItem {
     }
 }
 
+// MARK: - ジャンルアイテム
+
+enum GenreItem: Int, CaseIterable {
+    case `all`
+    case pan
+    case bento
+    case chukaman
+    case desert
+    case men
+    case others
+    case currentUser
+    case ls100
+
+    /// ジャンルの名前
+    /// - Returns: 条件に一致したジャンルの名前
+    func title() -> String {
+        switch self {
+        case .all:
+            return "すべて"
+        case .pan:
+            return "パン"
+        case .bento:
+            return "弁当"
+        case .chukaman:
+            return "中華まん"
+        case .desert:
+            return "デザート"
+        case .men:
+            return "麺類"
+        case .others:
+            return "その他"
+        case .currentUser:
+            return "会員限定"
+        case .ls100:
+            return "LS100"
+        }
+    }
+}
+
 #Preview {
-    HeaderViewItem(couponGenre: .constant(.all))
+    HeaderViewItem(couponGenre: .constant(.all), selectedTab: .constant(.now))
         .background(Color(.systemBackground))
 }

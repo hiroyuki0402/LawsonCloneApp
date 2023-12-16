@@ -10,16 +10,6 @@ import Foundation
 struct CouponData: Identifiable, Codable {
     let id: String
     let image: String
-    let releaseDate: String
-    let title: String
-    let kbn: Int
-    let discount: Int
-    let endDate: String
-}
-
-struct CouponData2: Identifiable, Codable {
-    let id: String
-    let image: String
     let type: Int
     let releaseDate: String
     let title: String
@@ -30,4 +20,4 @@ struct CouponData2: Identifiable, Codable {
 }
 
 typealias CouponDatas = [CouponData]
-typealias CouponDatas2 = [CouponData2]
+

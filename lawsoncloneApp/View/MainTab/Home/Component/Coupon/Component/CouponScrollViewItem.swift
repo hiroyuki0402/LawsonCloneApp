@@ -25,13 +25,15 @@ struct CouponScrollViewItem: View {
     // MARK: - プロパティー
     var couponData: CouponData
     var itemType: ItemType
-
+    /// 画像
+    @State private var image: Image? = nil
+    
     // MARK: - ボディー
 
     var body: some View {
         VStack(spacing: 0) {
             /// クーポン画像
-            couponImageItem
+            couponImageView
                 .padding(.all, 10)
 
 
@@ -73,6 +75,16 @@ struct CouponScrollViewItem: View {
             return ("あと\(daysRemaining)日", .end)
         }
         return ("", .none)
+    }
+
+    /// 画像ロード
+    private func loadImage() {
+        Task {
+            if let url = URL(string: couponData.image) {
+                image = await ImageService.shared.loadImageAsImage(url: url)
+            }
+            return Image("")
+        }
     }
 }
 
@@ -137,6 +149,23 @@ private extension CouponScrollViewItem {
                 .font(.footnote)
                 .fontWeight(.semibold)
                 .padding(.bottom, 2)
+        }
+    }
+
+    /// クーポン画像
+    private var couponImageView: some View {
+        VStack {
+            if let image = image {
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 150, alignment: .bottom)
+            } else {
+                ProgressView()
+                    .onAppear {
+                        loadImage()
+                    }
+            }
         }
     }
 }
