@@ -56,11 +56,9 @@ struct TopicsTabItemView: View {
             HStack {
                 ScrollView(.horizontal, showsIndicators: false) {
                     genreButton
-                        .padding(.trailing, 10)
                 }
 
             }
-            .padding(.leading, 10)
         }
     }//: ボディー
 }
@@ -68,34 +66,37 @@ struct TopicsTabItemView: View {
 private extension TopicsTabItemView {
     /// ジャンル
     private var genreButton: some View {
-        HStack {
-            ForEach(TopicsTabItem.allCases) { item in
-                VStack {
-                    Button {
-                        selectedTab = item
-                    } label: {
-                        Text(item.getTitle())
-                            .foregroundStyle(.black)
-                            .fontWeight(.light)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 2)
-                            .modifier(WidthSetterModifier(width: Binding(
-                                get: { self.tabWidths[item, default: 0] },
-                                set: { self.tabWidths[item] = $0 }
-                            )))
-                    }
-                    if selectedTab == item {
-                        Rectangle()
-                            .foregroundStyle(Color.blue)
-                            .frame(width: self.tabWidths[item, default: 0], height: 2)
+        VStack(spacing: 1) {
+            HStack {
+                ForEach(TopicsTabItem.allCases) { item in
+                    VStack {
+                        Button {
+                            selectedTab = item
+                        } label: {
+                            Text(item.getTitle())
+                                .foregroundStyle(.black)
+                                .fontWeight(.light)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 2)
+                                .modifier(WidthSetterModifier(width: Binding(
+                                    get: { self.tabWidths[item, default: 0] },
+                                    set: { self.tabWidths[item] = $0 }
+                                )))
+                        }
+                        if selectedTab == item {
+                            Rectangle()
+                                .foregroundStyle(Color.blue)
+                                .frame(width: self.tabWidths[item, default: 0], height: 2)
 
-                    } else {
-                        Rectangle()
-                            .foregroundStyle(Color.clear)
-                            .frame(width: self.tabWidths[item, default: 0], height: 2)
+                        } else {
+                            Rectangle()
+                                .foregroundStyle(Color.clear)
+                                .frame(width: self.tabWidths[item, default: 0], height: 2)
+                        }
                     }
                 }
             }
+            Divider()
         }
     }
 }

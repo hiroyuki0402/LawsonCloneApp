@@ -42,44 +42,71 @@ struct TopicsView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack {
-                    /// バナー
-                    headerArea
+            List {
+
+                /// バナー
+                headerArea
+                    .listRowSeparator(.hidden)
+
+                Section(header: ZStack(alignment: .leading) {
+                    /// タブ
+                    genreTabArea
+
+                }
+                    .listRowInsets(EdgeInsets())
+                ) {
 
                     /// ピックアップ
-                    pickupArea
+                    pickupArea.padding(.top, -10)
+                    divider(height: 20)
 
                     /// お得情報
-                    otokuArea
+                    otokuArea.padding(.top, -30)
+                    divider(height: 20)
 
                     /// キャンペーン
-                    campaignArea
+                    campaignArea.padding(.top, -30)
+                    divider(height: 20)
+
 
                     /// 予約
-                    reservationArea
+                    reservationArea.padding(.top, -30)
+                    divider(height: 20)
+
 
                     /// サービス
-                    serviceArea
+                    serviceArea.padding(.top, -30)
+                    divider(height: 20)
+
 
                     /// ローソンからのお知らせ
-                    noticeArea
+                    noticeArea.padding(.top, -30)
+                    divider(height: 20)
 
                     /// 募集
-                    recruitmentArea
+                    recruitmentArea.padding(.top, -30)
+                }
+                .listRowSeparator(.hidden)
 
-                }//: VStack
-
-            }//: ScrollView
+            }//: List
             .scrollIndicators(.hidden)
             .listStyle(.plain)
-            .background(Color(.systemGray6))
+            .background(.white)
             .navigationTitle(NSLocalizedString("TopicsNaigationTitle", comment: ""))
             .navigationBarTitleDisplayMode(.inline)
 
         }//: NavigationStack
 
     }//: ボディー
+
+    private func divider(height: CGFloat, color: Color = Color(uiColor: .systemGray6)) -> some View {
+        Rectangle()
+            .frame(height: height)
+            .foregroundColor(color)
+            .padding(.top, -20)
+            .padding(.bottom, -100)
+            .padding(.horizontal, -20)
+    }
 }
 // MARK: - TopicsViewアイテム
 
@@ -88,15 +115,10 @@ private extension TopicsView {
     private var headerArea: some View {
         VStack {
             TopicksBannerItemView()
-                .padding(.top, 30)
-
-            /// タブ
-            genreTabArea
-                .padding(.top)
+                .padding(.leading, 10)
+                .padding(.top, 10)
         }
-        .frame(height: 140)
-        .padding(.bottom)
-        .background(Color.white)
+        .padding(.horizontal, -30)
     }
 
     /// タブ
@@ -113,7 +135,6 @@ private extension TopicsView {
             Section(header:
                         HStack(alignment: .bottom, spacing: 0) {
                 Text("ピックアップ")
-                    .padding(.leading)
                     .padding(.top, 20)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -124,7 +145,7 @@ private extension TopicsView {
                 LazyVGrid(columns: gridLayout, content: {
                     ForEach(TestData.shared.pickupsItems, id: \.self) { item in
                         TopicsItemView(image: item)
-                            .padding(10)
+                            .padding(.vertical, 5)
                     }
                 })
             }
@@ -138,7 +159,6 @@ private extension TopicsView {
             Section(header:
                         HStack(alignment: .bottom, spacing: 0) {
                 Text("お得情報")
-                    .padding(.leading)
                     .padding(.top, 20)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -148,7 +168,7 @@ private extension TopicsView {
                 LazyVGrid(columns: gridLayout, content: {
                     ForEach(TestData.shared.otokuItems, id: \.self) { item in
                         TopicsItemView(image: item)
-                            .padding(10)
+                            .padding(.vertical, 5)
                     }
                 })
             }
@@ -163,7 +183,6 @@ private extension TopicsView {
             Section(header:
                         HStack(alignment: .bottom, spacing: 0) {
                 Text("キャンペーン")
-                    .padding(.leading)
                     .padding(.top, 20)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -173,7 +192,7 @@ private extension TopicsView {
                 LazyVGrid(columns: gridLayout, content: {
                     ForEach(TestData.shared.campaignItems, id: \.self) { item in
                         TopicsItemView(image: item)
-                            .padding(10)
+                            .padding(.vertical, 5)
                     }
                 })
             }
@@ -188,7 +207,6 @@ private extension TopicsView {
             Section(header:
                         HStack(alignment: .bottom, spacing: 0) {
                 Text("予約")
-                    .padding(.leading)
                     .padding(.top, 20)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -198,13 +216,13 @@ private extension TopicsView {
                 LazyVGrid(columns: gridLayout, content: {
                     ForEach(TestData.shared.reservation, id: \.self) { item in
                         TopicsItemView(image: item)
-                            .padding(10)
+                            .padding(.vertical, 5)
                     }
                 })
             }
         }
         .background(Color.white)
-        .padding(.top, 10)
+        .padding(.vertical, 5)
     }
 
     /// サービスエリア
@@ -213,7 +231,6 @@ private extension TopicsView {
             Section(header:
                         HStack(alignment: .bottom, spacing: 0) {
                 Text("サービス")
-                    .padding(.leading)
                     .padding(.top, 20)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -223,7 +240,7 @@ private extension TopicsView {
                 LazyVGrid(columns: gridLayout, content: {
                     ForEach(TestData.shared.serviceItems, id: \.self) { item in
                         TopicsItemView(image: item)
-                            .padding(10)
+                            .padding(.vertical, 5)
                     }
                 })
             }
@@ -238,7 +255,6 @@ private extension TopicsView {
             Section(header:
                         HStack(alignment: .bottom, spacing: 0) {
                 Text("ローソンからのお知らせ")
-                    .padding(.leading)
                     .padding(.top, 20)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -248,7 +264,7 @@ private extension TopicsView {
                 LazyVGrid(columns: gridLayout, content: {
                     ForEach(TestData.shared.noticeItems, id: \.self) { item in
                         TopicsItemView(image: item)
-                            .padding(10)
+                            .padding(.vertical, 5)
                     }
                 })
             }
@@ -263,7 +279,6 @@ private extension TopicsView {
             Section(header:
                         HStack(alignment: .bottom, spacing: 0) {
                 Text("募集")
-                    .padding(.leading)
                     .padding(.top, 20)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -273,7 +288,7 @@ private extension TopicsView {
                 LazyVGrid(columns: gridLayout, content: {
                     ForEach(TestData.shared.partTimeItems, id: \.self) { item in
                         TopicsItemView(image: item)
-                            .padding(10)
+                            .padding(.vertical, 5)
                     }
                 })
             }
@@ -281,6 +296,7 @@ private extension TopicsView {
         .background(Color.white)
         .padding(.top, 10)
     }
+
 }
 
 #Preview {
