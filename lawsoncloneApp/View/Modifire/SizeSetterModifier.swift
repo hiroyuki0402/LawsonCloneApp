@@ -16,7 +16,7 @@ struct WidthSetterModifier: ViewModifier {
             .background(
                 GeometryReader { geometry in
                     Color.clear
-                        .preference(key: ViewWidthKey.self, value: geometry.size.width)
+                        .preference(key: ViewWidthKey.self, value: geometry.size.width - 10)
                 }
             )
             .onPreferenceChange(ViewWidthKey.self) { newWidth in
